@@ -12,7 +12,7 @@ Logo artwork and readme by G-Zone (I'm helping!)
 Special thanks to greysondn
 
 
-What you need:
+## What you need:
 
 Python
 The interpreter for the Python programming language, which autoMP is built with.
@@ -31,7 +31,7 @@ This is a modified Mario Paint ROM which uses the control pad for input rather t
 -> You're on your own here! A quick web search should prove fruitful.
 
 
-Setup:
+## Setup:
 
 Ensure that autoMP.py and mariopaintFaster.lua are in the same folder.
 
@@ -56,7 +56,7 @@ From here, you can create a new savestate to keep your artwork (File > Save Game
 We hope you enjoy making lots of Mario Paint masterpieces!
 
 
-Q&A
+## Q&A
 
 Q: Why do I have to load that savestate?
 
