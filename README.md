@@ -14,11 +14,11 @@ Special thanks to greysondn
 
 ## What you need:
 
-Python
+Python:
 The interpreter for the Python programming language, which autoMP is built with.
 -> For Windows 10, open Command Prompt and type "python3", then press enter and install.
 
-Pillow
+Pillow:
 A set of libraries for Python, required to run autoMP.
 -> Open Command Prompt and type "python3 -m pip install --upgrade pip" and press enter. Then, type "python3 -m pip install --upgrade Pillow" and press enter.
 
