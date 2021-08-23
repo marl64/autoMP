@@ -9,6 +9,8 @@ mariopaintFaster by alden
 
 readme by G-Zone (I'm helping!)
 
+Special thanks to greysondn
+
 
 What you need:
 
