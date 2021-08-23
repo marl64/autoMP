@@ -1,6 +1,6 @@
-local imagestring = ""
-local imagewidth = 165 - 1
-local imageheight = 165 - 1
+local imagestring = 
+local imagewidth =  --max size 248
+local imageheight =  --max size 168
 
 snes9x.speedmode("turbo")
 
@@ -8,18 +8,16 @@ local cursorx = 0x7e0226
 local cursory = 0x7e0227
 local cursortype = 0x7E0426 -- 86 stamp, 84 color picker
 
-local leftbound = 3   --4
-local topbound = 26  --26
-local rightbound = 248             --245 left right
-local bottombound = 191            -- 165 up down
+local leftbound = 2 
+local topbound = 24  
+local rightbound = 250        
+--local bottombound = 0       
 
 local stepsize = 1
 
 local colorList2={'1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'}
 local colorTotals={}
 local colorList={}
-
-
 
 
 for i=1,15 do
@@ -255,11 +253,13 @@ for k = 1,15 do
        for j = 0,imagewidth-1 do
                thisposition = i*imagewidth + j + 1
                --gui.popup(thisposition)
+               
 
                curPix = string.sub(imagestring,thisposition,thisposition)
 
                if curPix == colorTotals[k][2] then
                   paintdot(j,i)
+                  
                end
        end
    end

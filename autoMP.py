@@ -35,9 +35,9 @@ fin=dir_path+"\input"
 fout=dir_path+"\output\\"
 for file in Path(fin).iterdir():
     
-    image = Image.open(file) #copy image filename here!!!
+    image = Image.open(file) 
     image=image.convert("RGB")
-    image.thumbnail((245,165))
+    image.thumbnail((248,168))
 
     image=image.quantize(colors=15, palette=pimage)
     head, tail = os.path.split(file)
@@ -48,17 +48,18 @@ for file in Path(fin).iterdir():
 
     outstring = ""
 
-    for i in range(0,image.size[1]-1):
-        for j in range(0,image.size[0]-1):
+    for i in range(0,image.size[1]):
+        for j in range(0,image.size[0]):
         
            outstring+= mpcolors[pix[j, i]]
            
+         
     #generating a new lua file
     file=open('mariopaintFaster.lua','r')
     lines=file.readlines()
     lines[0]="local imagestring = \"%s\"\n" %(outstring)
-    lines[1]="local imagewidth = %d - 1\n" %(image.size[0])
-    lines[2]="local imageheight = %d - 1\n" %(image.size[1])
+    lines[1]="local imagewidth = %d\n" %(image.size[0])
+    lines[2]="local imageheight = %d\n" %(image.size[1])
 
     file=open(fout+root+".lua",'w')
     file.writelines(lines)
