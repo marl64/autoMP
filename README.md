@@ -14,19 +14,19 @@ Special thanks to greysondn
 
 ## What you need:
 
-Python:
+###### Python:
 The interpreter for the Python programming language, which autoMP is built with.
 -> For Windows 10, open Command Prompt and type "python3", then press enter and install.
 
-Pillow:
+###### Pillow:
 A set of libraries for Python, required to run autoMP.
 -> Open Command Prompt and type "python3 -m pip install --upgrade pip" and press enter. Then, type "python3 -m pip install --upgrade Pillow" and press enter.
 
-SNES9x with Lua support:
+###### SNES9x with Lua support:
 This is a version of the SNES9x emulator which lets you run game-altering scripts.
 -> https://github.com/TASVideos/snes9x-rr/releases/tag/snes9x-151-v7.1
 
-Mario Paint (JU) [h1] (Joystick):
+###### Mario Paint (JU) [h1] (Joystick):
 This is a modified Mario Paint ROM which uses the control pad for input rather than the SNES mouse.
 -> You're on your own here! A quick web search should prove fruitful.
 
