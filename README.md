@@ -1,5 +1,5 @@
 # autoMP
-tool for converting images into a Lua script for rendering in Mario Paint
+Tool for converting images into a Lua script for rendering in Mario Paint
 
 autoMP by marl
 
@@ -7,20 +7,20 @@ based on Automatic Mario Paint by alden
 
 mariopaintFaster by alden
 
-readme by G-Zone (I'm helping!)
+Logo artwork and readme by G-Zone (I'm helping!)
 
 Special thanks to greysondn
 
 
 What you need:
 
-Python:
+Python
 The interpreter for the Python programming language, which autoMP is built with.
--> https://www.python.org/downloads/
+-> For Windows 10, open Command Prompt and type "python3", then press enter and install.
 
-Pillow:
+Pillow
 A set of libraries for Python, required to run autoMP.
--> https://pillow.readthedocs.io/en/stable/installation.html
+-> Open Command Prompt and type "python3 -m pip install --upgrade pip" and press enter. Then, type "python3 -m pip install --upgrade Pillow" and press enter.
 
 SNES9x with Lua support:
 This is a version of the SNES9x emulator which lets you run game-altering scripts.
