@@ -12,17 +12,17 @@ Logo artwork and readme by G-Zone (I'm helping!)
 Special thanks to greysondn
 
 
-## What you need:
+## What you need
 
-###### Python:
+###### Python
 The interpreter for the Python programming language, which autoMP is built with.  When installing, be sure to check the box labeled "Add Python to PATH". Everything on the Optional Features page should be checked, and the on top of the defaults, be sure to also check "Precompile standard libraries" on the Advanced Options page.
 -> https://www.python.org/downloads/
 
-###### Pillow:
+###### Pillow
 A set of libraries for Python, required to run autoMP.
 -> Open Command Prompt and type "pip install --upgrade pip" and press enter. Then, type "pip install --upgrade Pillow" and press enter.
 
-###### SNES9x with Lua support:
+###### SNES9x with Lua support
 This is a version of the SNES9x emulator which lets you run game-altering scripts.
 -> https://github.com/TASVideos/snes9x-rr/releases/tag/snes9x-151-v7.1
 
@@ -30,12 +30,12 @@ This is a version of the SNES9x emulator which lets you run game-altering script
 This is a very simple utility for patching ROM files. Just browse for the included patch, then for the Mario Paint ROM you want to patch it to.
 -> https://fusoya.eludevisibility.org/lips/
 
-###### Mario Paint ROM:
+###### Mario Paint ROM
 Mario Paint is a... well, if you're using autoMP, you probably know what Mario Paint is!
 -> You're on your own here!
 
 
-## Setup:
+## Setup
 
 1. Ensure that autoMP.py and mariopaintFaster.lua are in the same folder.
 
