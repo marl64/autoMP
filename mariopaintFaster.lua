@@ -37,7 +37,6 @@ table.sort(colorTotals, function(a,b) return a[1]<b[1] end) --use < for small to
 colorList = colorTotals
 
 leftbound = math.floor(leftbound + (rightbound-imagewidth-leftbound)/2)
-
 local colorSelected = '-'
 
 local function paintdot(dotx,doty)
