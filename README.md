@@ -27,11 +27,11 @@ This is a version of the SNES9x emulator which lets you run game-altering script
 -> https://github.com/TASVideos/snes9x-rr/releases/tag/snes9x-151-v7.1
 
 ###### Lunar IPS
-This is a very simple utility for patching ROM files. Just browse for the included patch, then for the Mario Paint ROM you want to patch it to.\
+This is a very simple utility for patching ROM files.\
 -> https://fusoya.eludevisibility.org/lips/
 
-###### Mario Paint ROM
-Mario Paint is a 1992 art program for the Super Nintendo Entertainment System/Super Famicom \
+###### Mario Paint ROM file
+Mario Paint is a 1992 art program for the Super Nintendo Entertainment System/Super Famicom that came bundled with the SNES Mouse.\
 -> We can't provide a source for this file. You'll have to either dump an official cartridge yourself, or obtain it some other way. A quick web search should prove fruitful.
 
 
@@ -45,11 +45,13 @@ Mario Paint is a 1992 art program for the Super Nintendo Entertainment System/Su
 
 4. Double-click autoMP.py. This should fill the output folder with preview images, as well as lua scripts for each image in your input folder.
 
-5. Place the provided snes9x.cfg file in your SNES9x folder (if there already is one, overwrite it), and make sure there are 2 sub-folders named "Roms" and "Saves". Place the ROM you downloaded in the Roms folder and place the provided savestate, MarioPaint.000, in the Saves folder. **Make sure both your patched ROM and the savestate have the same filename**. If they don't, rename one or both of them so that they match.
+5. Open Lunar IPS. Click "Apply IPS Patch" and browse for the patch we provided, MarioPaintJUh1Joystick.ips, then for the Mario Paint ROM you want to patch it to. This modifies your ROM to accept the gamepad rather than the mouse for inputs, which is imperative for autoMP to function properly.
 
-6. Open SNES9x and load the ROM (File > Open ROM...), then load the supplied savestate (Press the F1 key, or go to File > Load Game > Slot #0). You should now be on a blank canvas with the stamps page open at the top, with each stamp set to a single colored pixel.
+6. Place the provided snes9x.cfg file in your SNES9x folder (if there already is one, overwrite it), and make sure there are 2 sub-folders named "Roms" and "Saves". Place your patched ROM in the Roms folder and place the provided savestate, MarioPaint.000, in the Saves folder. **Make sure both your patched ROM and the savestate have the same filename**. If they don't, rename one or both of them so that they match.
 
-7. Open your chosen Lua script in SNES9x (Press spacebar, or go to File > Lua Scripting > New Lua Scripting Window..., then browse to your output folder and select the script you want to use and click Run) and watch the image draw! Do not close the scripting window or the drawing will stop. The drawing is complete once the game returns to normal speed. 
+7. Open SNES9x and load the ROM (File > Open ROM...), then load the supplied savestate (Press the F1 key, or go to File > Load Game > Slot #0). You should now be on a blank canvas with the stamps page open at the top, with each stamp set to a single colored pixel.
+
+8. Open your chosen Lua script in SNES9x (Press spacebar, or go to File > Lua Scripting > New Lua Scripting Window..., then browse to your output folder and select the script you want to use and click Run) and watch the image draw! Do not close the scripting window or the drawing will stop. The drawing is complete once the game returns to normal speed. 
 
 
 Voila! Your automatic work of art is finished!
