@@ -11,8 +11,7 @@ local cursortype = 0x7E0426 -- 86 stamp, 84 color picker
 local leftbound = 2 
 local topbound = 24  
 local rightbound = 250        
---local bottombound = 0 
---not needed yet      
+local bottombound = 192       
 
 local stepsize = 1
 
@@ -38,6 +37,7 @@ table.sort(colorTotals, function(a,b) return a[1]<b[1] end) --use < for small to
 colorList = colorTotals
 
 leftbound = math.floor(leftbound + (rightbound-imagewidth-leftbound)/2)
+topbound = math.floor(topbound + (bottombound-imageheight-topbound)/2)
 local colorSelected = '-'
 
 local function paintdot(dotx,doty)
