@@ -15,24 +15,24 @@ Special thanks to greysondn
 ## What you need
 
 ###### Python
-The interpreter for the Python programming language, which autoMP is built with.  When installing, be sure to check the box labeled "Add Python to PATH". Everything on the Optional Features page should be checked, and the on top of the defaults, be sure to also check "Precompile standard libraries" on the Advanced Options page.
+The interpreter for the Python programming language, which autoMP is built with.  When installing, be sure to check the box labeled "Add Python to PATH". Everything on the Optional Features page should be checked, and the on top of the defaults, be sure to also check "Precompile standard libraries" on the Advanced Options page.\
 -> https://www.python.org/downloads/
 
 ###### Pillow
-A set of libraries for Python, required to run autoMP.
+A set of libraries for Python, required to run autoMP.\
 -> Open Command Prompt and type "pip install --upgrade pip" and press enter. Then, type "pip install --upgrade Pillow" and press enter.
 
 ###### SNES9x with Lua support
-This is a version of the SNES9x emulator which lets you run game-altering scripts.
+This is a version of the SNES9x emulator which lets you run game-altering scripts.\
 -> https://github.com/TASVideos/snes9x-rr/releases/tag/snes9x-151-v7.1
 
 ###### Lunar IPS
-This is a very simple utility for patching ROM files. Just browse for the included patch, then for the Mario Paint ROM you want to patch it to.
+This is a very simple utility for patching ROM files. Just browse for the included patch, then for the Mario Paint ROM you want to patch it to.\
 -> https://fusoya.eludevisibility.org/lips/
 
 ###### Mario Paint ROM
-Mario Paint is a... well, if you're using autoMP, you probably know what Mario Paint is!
--> You're on your own here!
+Mario Paint is a 1992 art program for the Super Nintendo Entertainment System/Super Famicom \
+-> We can't provide a source for this file. You'll have to either dump an official cartridge yourself, or obtain it some other way. A quick web search should prove fruitful.
 
 
 ## Setup
