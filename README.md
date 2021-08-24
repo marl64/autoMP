@@ -51,7 +51,7 @@ Mario Paint is a 1992 art program for the Super Nintendo Entertainment System/Su
 
 7. Open SNES9x and load the ROM (File > Open ROM...), then load the supplied savestate (Press the F1 key, or go to File > Load Game > Slot #0). You should now be on a blank canvas with the stamps page open at the top, with each stamp set to a single colored pixel.
 
-8. Open your chosen Lua script in SNES9x (Press spacebar, or go to File > Lua Scripting > New Lua Scripting Window..., then browse to your output folder and select the script you want to use and click Run) and watch the image draw! Do not close the scripting window or the drawing will stop. The drawing is complete once the game returns to normal speed. 
+8. Load your chosen Lua script into SNES9x (Press spacebar twice, or go to File > Lua Scripting > New Lua Scripting Window..., then choose your file from the output folder), then press Run and watch the image draw! Do not close the scripting window or the drawing will stop. The drawing is complete once the game returns to normal speed. 
 
 
 Voila! Your automatic work of art is finished!
