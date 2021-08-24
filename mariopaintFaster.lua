@@ -11,7 +11,8 @@ local cursortype = 0x7E0426 -- 86 stamp, 84 color picker
 local leftbound = 2 
 local topbound = 24  
 local rightbound = 250        
---local bottombound = 0       
+--local bottombound = 0 
+--not needed yet      
 
 local stepsize = 1
 
