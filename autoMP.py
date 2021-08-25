@@ -2,13 +2,35 @@ from PIL import Image
 import os
 import os.path
 from pathlib import Path
+import configparser
+#from PIL import ImageOps
+
+config=configparser.ConfigParser(allow_no_value=True)
+if os.path.isfile('.\config.txt')==False:
+#default settings stored here. will generate a new config file with default settings if it does not exist
+    config.add_section('settings')
+    config.set('settings', '#change the palette_select value to change the colour palette. 0=default, 1=greyscale, 2= your first custom palette you\'ve created below, etc')
+    config.set('settings', 'palette_select', '0')
+    #config.set('settings','')  #config template pair, first is description comment
+    #config.set('settings', '', '')
+    config.add_section('greyscale')
+    config.set('greyscale','colors','black,darkgrey,lightgrey,white')
+    config.set('greyscale','#add your own custom palettes here using the same format as greyscale above') 
+    config.set('greyscale','#available colours are: red, orange, yellow, lightgreen, darkgreen, lightblue, darkblue, claybrown, dirtbrown, whiteskin, magenta, black, darkgrey, lightgrey, white')
+    config.set('greyscale','#make sure the colors are separated with only a comma, no spaces!') 
+    with open(r".\config.txt", 'w') as configfile:
+        config.write(configfile)
 #future config file options:
 #palette white skip
+#stretch to fill canvas - img.resize((248,168))
+#crop to fit canvas - img.fit(img, (248, 168))
+#fill canvas with colored border - pad(img, (248,168))
 
-#palette selector; use 0 for default
-palette_select=0
-
-
+#import settings from config.txt
+config.read(".\config.txt")
+settings=config['settings']
+palette_select=int(settings['palette_select'])
+config_sections=config.sections()
 
 #available colors
 colors={
@@ -28,12 +50,17 @@ colors={
 'lightgrey':[198,195,198],
 'white':[255,251,255]}
 
-#different palettes; use colors for default
-greyscale={x: y for (x,y) in colors.items() if x=='black' or x=='darkgrey' or x== 'lightgrey' or x== 'white'}
-
-
-palette_list=[colors,greyscale]
-mp_palette=palette_list[palette_select] 
+#import custom palette settings
+if palette_select>0:
+    testp=config[config_sections[palette_select]]
+    testp=testp['colors']
+    testp=testp.split(',')
+    custom={x: y for (x,y) in colors.items() if x in testp}
+ 
+#palette prep
+if palette_select>0:
+    colors=custom
+mp_palette=colors
 mp_palette=[x for l in mp_palette.values() for x in l]
 numcolors=int(len(mp_palette)/3)
 padding=mp_palette[0:3]*(256-numcolors)
@@ -46,13 +73,13 @@ mp_palette=mp_palette+padding
 pimage = Image.new("P", (1, 1), 0)
 pimage.putpalette(mp_palette)
 
-#mpcolorsgrey=['C','D','E','F']
+#prep specific palette for drawing routine
 mpcolors=['1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']
 x=list(colors)
 mpfinal=zip(x,mpcolors)
 mpfinal=list(mpfinal)
 mpfinal=dict(mpfinal)
-check=list(palette_list[palette_select])
+check=list(colors)
 mpcolors=[mpfinal[x] for x in check]
 
 #locating all relevant image files in the input folder
@@ -83,7 +110,6 @@ for file in Path(fin).iterdir():
         
            outstring+= mpcolors[pix[j, i]]
            
-         
     #generating a new lua file
     file=open('mariopaintFaster.lua','r')
     lines=file.readlines()

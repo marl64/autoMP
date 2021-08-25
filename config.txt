@@ -1,0 +1,10 @@
+[settings]
+#change the palette_select value to change the colour palette. 0=default, 1=greyscale, 2= your first custom palette you've created below, etc
+palette_select = 0
+
+[greyscale]
+colors = black,darkgrey,lightgrey,white
+#add your own custom palettes here using the same format as greyscale above
+#available colours are: red, orange, yellow, lightgreen, darkgreen, lightblue, darkblue, claybrown, dirtbrown, whiteskin, magenta, black, darkgrey, lightgrey, white
+#make sure the colors are separated with only a comma, no spaces!
+
