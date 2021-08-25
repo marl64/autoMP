@@ -3,6 +3,8 @@
 palette_select = 0
 #image scaling mode. use 0 for default(aspect ratio preserved), 1 for crop and 2 for stretch
 scaling = 0
+#enable/disable dithering. 0 is disable, 1 is enable
+dither = 1
 
 [greyscale]
 colors = black,darkgrey,lightgrey,white

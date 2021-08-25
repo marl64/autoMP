@@ -13,6 +13,8 @@ if os.path.isfile('.\config.txt')==False:
     config.set('settings', 'palette_select', '0')
     config.set('settings','#image scaling mode. use 0 for default(aspect ratio preserved), 1 for crop and 2 for stretch')  
     config.set('settings', 'scaling', '0')
+    config.set('settings','#enable/disable dithering. 0 is disable, 1 is enable')  
+    config.set('settings', 'dither', '1')
     #config.set('settings','')  #config template pair, first is description comment
     #config.set('settings', '', '')
     config.add_section('greyscale')
@@ -34,7 +36,7 @@ settings=config['settings']
 palette_select=int(settings['palette_select'])
 scaling_select=int(settings['scaling'])
 config_sections=config.sections()
-
+dither_select=int(settings['dither'])
 #available colors
 colors={
 'red':[255,0,0],
@@ -104,7 +106,7 @@ for file in Path(fin).iterdir():
         image.thumbnail((248,168))
 
     #applying correct palette
-    image=image.quantize(colors=numcolors, palette=pimage)
+    image=image.quantize(colors=numcolors, palette=pimage, dither=dither_select)
 
     #saving image preview
     head, tail = os.path.split(file)
