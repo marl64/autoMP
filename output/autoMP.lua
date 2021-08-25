@@ -11,7 +11,7 @@ local cursortype = 0x7E0426 -- 86 stamp, 84 color picker
 local leftbound = 2 
 local topbound = 24  
 local rightbound = 250        
---local bottombound = 0       
+local bottombound = 192       
 
 local stepsize = 1
 
@@ -19,25 +19,20 @@ local colorList2={'1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'}
 local colorTotals={}
 local colorList={}
 
-
 for i=1,15 do
    colorTotals[i] = {0,colorList2[i]}
    for w in string.gfind(imagestring, colorList2[i]) do
        colorTotals[i][1] = colorTotals[i][1] + 1
    end
-   --gui.popup(colorTotals[colorIter][1])
 end
 
 table.sort(colorTotals, function(a,b) return a[1]<b[1] end) --use < for small to large, > for large to small
 
---for i=1,15 do
---     gui.popup(colorTotals[i][1].." "..colorTotals[i][2])
---end
-
 colorList = colorTotals
 
+--for centering images that do not match the aspect ratio
 leftbound = math.floor(leftbound + (rightbound-imagewidth-leftbound)/2)
-
+topbound = math.floor(topbound + (bottombound-imageheight-topbound)/2)
 local colorSelected = '-'
 
 local function paintdot(dotx,doty)
@@ -105,13 +100,9 @@ local function paintdot(dotx,doty)
       end
       joypad.set(1,{X=1})
       snes9x.frameadvance()
-      --snes9x.frameadvance()
-
-
 end
 
 local function chooseColor(thecolor)
-      --gui.popup(thecolor)
       local targetx
       local targety = 14
       if(thecolor=='1') then
@@ -159,9 +150,6 @@ local function chooseColor(thecolor)
       if(thecolor=='F') then
            targetx = 226
       end
-
-      
-
 
       local currentx = memory.readbyte(cursorx)
       local currenty = memory.readbyte(cursory)
@@ -235,31 +223,23 @@ local function chooseColor(thecolor)
       snes9x.frameadvance()
       snes9x.frameadvance()
 
-      
       colorSelected = thecolor
-
 end
 
 local thisposition = 1
 
-
-
 for k = 1,15 do
    snes9x.message(colorTotals[k][2])
-   --snes9x.pause()
    chooseColor(colorTotals[k][2])
 
    for i = 0,imageheight-1 do
        for j = 0,imagewidth-1 do
                thisposition = i*imagewidth + j + 1
-               --gui.popup(thisposition)
-               
 
                curPix = string.sub(imagestring,thisposition,thisposition)
 
                if curPix == colorTotals[k][2] then
                   paintdot(j,i)
-                  
                end
        end
    end
