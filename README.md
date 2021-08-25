@@ -11,7 +11,7 @@ Logo artwork and readme by G-Zone (I'm helping!)
 
 Special thanks to greysondn
 
-*This guide was written with accesibility in mind. My hope is that anyone will be able to use autoMP, even if you, like myself, are unfamiliar with things like Python and related software. It is written assuming you're using Windows 10.*
+*This guide was written with accessibility in mind. My hope is that anyone will be able to use autoMP, even if you, like myself, are unfamiliar with things like Python and related software. It is written assuming you're using Windows 10.*
 
 
 ## What you need
