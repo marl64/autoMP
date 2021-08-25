@@ -11,16 +11,26 @@ Logo artwork and readme by G-Zone (I'm helping!)
 
 Special thanks to greysondn
 
+*This guide was written with accesibility in mind. My hope is that anyone will be able to use autoMP, even if you, like myself, are unfamiliar with things like Python and related software. It is written assuming you're using Windows 10.*
+
 
 ## What you need
 
+###### autoMP
+Our image converting and script writing utility. Be sure to download the latest version!\
+-> https://github.com/marl64/autoMP/releases
+
 ###### Python
-The interpreter for the Python programming language, which autoMP is built with.  When installing, be sure to check the box labeled "Add Python to PATH". Everything on the Optional Features page should be checked, and the on top of the defaults, be sure to also check "Precompile standard libraries" on the Advanced Options page.\
+The interpreter for the Python programming language, which autoMP is built with.\
+* In the installer, be sure that "Add Python to PATH" is checked on the first page, then click Customize installation.
+* For Optional Features, leave everything checked.
+* For Advanced Options, be sure to check "Decompile standard library".
 -> https://www.python.org/downloads/
 
 ###### Pillow
 A set of libraries for Python, required to run autoMP.\
--> Open Command Prompt and type "pip install --upgrade pip" and press enter. Then, type "pip install --upgrade Pillow" and press enter.
+* After installing Python as instructed above, open Command Prompt (Press the Windows key, then type cmd), then right-click and press "Run as administrator".
+* Type "pip install --upgrade Pillow" and press enter.
 
 ###### SNES9x with Lua support
 This is a version of the SNES9x emulator which lets you run game-altering scripts.\
@@ -37,9 +47,9 @@ Mario Paint is a 1992 art program for the Super Nintendo Entertainment System/Su
 
 ## Setup
 
-1. Ensure that autoMP.py and mariopaintFaster.lua are in the same folder.
+1. Download and extract the autoMP source code.
 
-2. If they don't already exist, create 2 new folders, "input" and "output" in that folder as well.
+2. If they don't already exist, create 2 new folders, "input" and "output" in the autoMP folder.
 
 3. Place the image(s) you want to use into the input folder. Pretty much any image file should work. If one isn't accepted, try saving it as a common filetype, like .jpg or .png.
 
@@ -47,11 +57,11 @@ Mario Paint is a 1992 art program for the Super Nintendo Entertainment System/Su
 
 5. Open Lunar IPS. Click "Apply IPS Patch" and browse for the patch we provided, MarioPaintJUh1Joystick.ips, then for the Mario Paint ROM you want to patch it to. This modifies your ROM to accept the gamepad rather than the mouse for inputs, which is imperative for autoMP to function properly.
 
-6. Place the provided snes9x.cfg file in your SNES9x folder (if there already is one, overwrite it), and make sure there are 2 sub-folders named "Roms" and "Saves". Place your patched ROM in the Roms folder and place the provided savestate, MarioPaint.000, in the Saves folder. **Make sure both your patched ROM and the savestate have the same filename**. If they don't, rename one or both of them so that they match.
+6. Extract the SNES9x emulator into a seperate folder from autoMP. Place the provided snes9x.cfg file into your SNES9x folder (if there already is one, overwrite it), and make sure there are 2 sub-folders named "Roms" and "Saves". Place your patched ROM in the Roms folder and place the provided savestate, MarioPaint.000, in the Saves folder. **Make sure both your patched ROM and the savestate have the same filename. If they don't, rename one or both of them so that they match.**
 
 7. Open SNES9x and load the ROM (File > Open ROM...), then load the supplied savestate (Press the F1 key, or go to File > Load Game > Slot #0). You should now be on a blank canvas with the stamps page open at the top, with each stamp set to a single colored pixel.
 
-8. Load your chosen Lua script into SNES9x (Press spacebar twice, or go to File > Lua Scripting > New Lua Scripting Window..., then choose your file from the output folder), then press Run and watch the image draw! Do not close the scripting window or the drawing will stop. The drawing is complete once the game returns to normal speed. 
+8. Load your chosen Lua script into SNES9x (Press spacebar twice, or go to File > Lua Scripting > New Lua Scripting Window..., then choose your file from the output folder), then press Run and watch the image draw! *(Note: you can press the M key to toggle the sound.)* Do not close the scripting window or the drawing will stop. The drawing is complete once the game returns to normal speed. 
 
 
 Voila! Your automatic work of art is finished!
@@ -70,7 +80,7 @@ A: The stamps! Mario Paint's smallest brush size is 2x2. In order to work around
 
 Q: What is the included snes9x.cfg file for?
 
-A: The .cfg or configuration file saves the emulator's settings. You can skip this step if you want, but I've disabled some obtrusive on-screen text, mapped the spacebar to open the Lua Script Window, and changed the default image size to 1x, which is easily resizable if you'd like. The inclusion of this .cfg is mostly for the convenience of the layman who may not be familiar with emulators. 
+A: The .cfg or configuration file saves the emulator's settings. You can skip this step if you want, but I've disabled some obtrusive on-screen text, mapped the spacebar to open the Lua Script Window and the M key to toggle sound, and changed the default image size to 1x, which is easily resizable if you'd like. The inclusion of this .cfg is mostly for the convenience of the layman who may not be familiar with emulators. 
 
 Q: I don't like how my image turned out. Can I prepare an image externally and have that turned into a Lua script?
 
