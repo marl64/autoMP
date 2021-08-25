@@ -12,3 +12,4 @@ colors = black,darkgrey,lightgrey,white
 #available colours are: red, orange, yellow, lightgreen, darkgreen, lightblue, darkblue, claybrown, dirtbrown, whiteskin, magenta, black, darkgrey, lightgrey, white
 #make sure the colors are separated with only a comma, no spaces!
 
+#to restore settings to default, delete this txt and run autoMP to generate the default txt
