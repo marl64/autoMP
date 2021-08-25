@@ -1,6 +1,8 @@
 [settings]
 #change the palette_select value to change the colour palette. 0=default, 1=greyscale, 2= your first custom palette you've created below, etc
 palette_select = 0
+#image scaling mode. use 0 for default(aspect ratio preserved), 1 for crop and 2 for stretch
+scaling = 0
 
 [greyscale]
 colors = black,darkgrey,lightgrey,white

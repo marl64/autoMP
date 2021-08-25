@@ -3,7 +3,7 @@ import os
 import os.path
 from pathlib import Path
 import configparser
-#from PIL import ImageOps
+from PIL import ImageOps
 
 config=configparser.ConfigParser(allow_no_value=True)
 if os.path.isfile('.\config.txt')==False:
@@ -11,6 +11,8 @@ if os.path.isfile('.\config.txt')==False:
     config.add_section('settings')
     config.set('settings', '#change the palette_select value to change the colour palette. 0=default, 1=greyscale, 2= your first custom palette you\'ve created below, etc')
     config.set('settings', 'palette_select', '0')
+    config.set('settings','#image scaling mode. use 0 for default(aspect ratio preserved), 1 for crop and 2 for stretch')  
+    config.set('settings', 'scaling', '0')
     #config.set('settings','')  #config template pair, first is description comment
     #config.set('settings', '', '')
     config.add_section('greyscale')
@@ -30,6 +32,7 @@ if os.path.isfile('.\config.txt')==False:
 config.read(".\config.txt")
 settings=config['settings']
 palette_select=int(settings['palette_select'])
+scaling_select=int(settings['scaling'])
 config_sections=config.sections()
 
 #available colors
@@ -91,7 +94,14 @@ for file in Path(fin).iterdir():
     #converting image to correct resolution
     image = Image.open(file) 
     image=image.convert("RGB")
-    image.thumbnail((248,168))
+    if scaling_select==0:
+        image.thumbnail((248,168))
+    elif scaling_select==1:
+        image=ImageOps.fit(image, (248, 168))
+    elif scaling_select==2:
+        image=image.resize((248,168))
+    else:
+        image.thumbnail((248,168))
 
     #applying correct palette
     image=image.quantize(colors=numcolors, palette=pimage)
