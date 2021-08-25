@@ -1,3 +1,8 @@
+v1.2.0
+
+added config file
+added custom palette options
+
 v1.1.1
 
 fixed brown colour issue
