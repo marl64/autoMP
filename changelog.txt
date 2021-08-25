@@ -3,6 +3,7 @@ v1.2.0
 added config file
 added custom palette options
 added scaling options
+added dither option
 
 v1.1.1
 
