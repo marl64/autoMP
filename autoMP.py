@@ -1,53 +1,83 @@
-import PIL
 from PIL import Image
-import sys
 import os
 import os.path
 from pathlib import Path
+#future config file options:
+#palette white skip
 
-mp_palette= [255,0,0,255,130,0,255,251,0,0,251,0,0,130,66,0,251,255,0,0,255,198,65,33,132,97,0,255,195,132,198,0,198,0,0,0,132,130,132,198,195,198,255,251,255,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-] #the palette needs to be buffered with duplicate colours to work correctly :)
+#palette selector; use 0 for default
+palette_select=0
+
+
+
+#available colors
+colors={
+'red':[255,0,0],
+'orange':[255,130,0],
+'yellow':[255,251,0],
+'lightgreen':[0,251,0],
+'darkgreen':[0,130,66],
+'lightblue':[0,251,255],
+'darkblue':[0,0,255],
+'claybrown':[198,65,33],
+'dirtbrown':[132,97,0],
+'whiteskin':[255,195,132],
+'magenta':[198,0,198],
+'black':[0,0,0],
+'darkgrey':[132,130,132],
+'lightgrey':[198,195,198],
+'white':[255,251,255]}
+
+#different palettes; use colors for default
+greyscale={x: y for (x,y) in colors.items() if x=='black' or x=='darkgrey' or x== 'lightgrey' or x== 'white'}
+
+
+palette_list=[colors,greyscale]
+mp_palette=palette_list[palette_select] 
+mp_palette=[x for l in mp_palette.values() for x in l]
+numcolors=int(len(mp_palette)/3)
+padding=mp_palette[0:3]*(256-numcolors)
+mp_palette=mp_palette+padding
+#the palette needs to be padded with duplicate colors up to 256 to work correctly :)
+#we use the first color to ensure no extra colors are added
+#this whole section could be cleaned up a lot :/
 
 # a palette image to use for quantization
 pimage = Image.new("P", (1, 1), 0)
 pimage.putpalette(mp_palette)
 
-mpcolors={}
-mpcolors[0]='1' #red
-mpcolors[1]='2'  #orange
-mpcolors[2]='3'  #yellow
-mpcolors[3]='4'  #light green
-mpcolors[4]='5'  #dark green
-mpcolors[5]='6'  #light blue
-mpcolors[6]='7'  #dark blue
-mpcolors[7]='8'  #orangey brown
-mpcolors[8]='9'  #brown
-mpcolors[9]='A'  #flesh
-mpcolors[10]='B'  #magenta
-mpcolors[11]='C'  #black
-mpcolors[12]='D'  #dark grey
-mpcolors[13]='E'  #light grey
-mpcolors[14]='F'  #white
+#mpcolorsgrey=['C','D','E','F']
+mpcolors=['1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']
+x=list(colors)
+mpfinal=zip(x,mpcolors)
+mpfinal=list(mpfinal)
+mpfinal=dict(mpfinal)
+check=list(palette_list[palette_select])
+mpcolors=[mpfinal[x] for x in check]
 
+#locating all relevant image files in the input folder
 dir_path = os.path.dirname(os.path.realpath(__file__))
 fin=dir_path+"\input"
 fout=dir_path+"\output\\"
 for file in Path(fin).iterdir():
-    
+
+    #converting image to correct resolution
     image = Image.open(file) 
     image=image.convert("RGB")
     image.thumbnail((248,168))
 
-    image=image.quantize(colors=15, palette=pimage)
+    #applying correct palette
+    image=image.quantize(colors=numcolors, palette=pimage)
+
+    #saving image preview
     head, tail = os.path.split(file)
     root, ext=os.path.splitext(tail)
     image.save(fout+root+".bmp")
 
     pix = image.load()
-
     outstring = ""
 
+    #generating output string
     for i in range(0,image.size[1]):
         for j in range(0,image.size[0]):
         
