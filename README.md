@@ -21,14 +21,14 @@ Our image converting and script writing utility. Be sure to download the latest 
 -> https://github.com/marl64/autoMP/releases
 
 ###### Python
-The interpreter for the Python programming language, which autoMP is built with.\
+The interpreter for the Python programming language, which autoMP is built with.
 * In the installer, be sure that "Add Python to PATH" is checked on the first page, then click Customize installation.
 * For Optional Features, leave everything checked.
 * For Advanced Options, be sure to check "Decompile standard library".\
 -> https://www.python.org/downloads/
 
 ###### Pillow
-A set of libraries for Python, required to run autoMP.\
+A set of libraries for Python, required to run autoMP.
 * After installing Python as instructed above, open Command Prompt (Press the Windows key, then type cmd), then right-click and press "Run as administrator".
 * Type "pip install --upgrade Pillow" and press enter.
 
