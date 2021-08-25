@@ -24,7 +24,7 @@ Our image converting and script writing utility. Be sure to download the latest 
 The interpreter for the Python programming language, which autoMP is built with.\
 * In the installer, be sure that "Add Python to PATH" is checked on the first page, then click Customize installation.
 * For Optional Features, leave everything checked.
-* For Advanced Options, be sure to check "Decompile standard library".
+* For Advanced Options, be sure to check "Decompile standard library".\
 -> https://www.python.org/downloads/
 
 ###### Pillow
