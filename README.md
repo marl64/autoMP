@@ -73,7 +73,7 @@ We hope you enjoy making lots of Mario Paint masterpieces!
 
 ## Additional image settings
 
-Included is a file called config.txt. This gives you extra control over how autoMP processes your input image. Change the number next to the setting name to change that setting.
+Included is a file called config.txt. This gives you extra control over how autoMP processes your input images. Change the number next to the setting name to change that setting.
 * palette_select - Allows you to limit the colors your image uses.
   *  0 - Default. Uses every color in the Mario Paint palette.
   *  1 - Greyscale. Turns your image black and white.
