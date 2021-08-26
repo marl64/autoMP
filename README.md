@@ -5,6 +5,8 @@ autoMP by marl
 
 Based on Automatic Mario Paint by alden
 
+mariopaintFaster by alden
+
 Logo artwork, readme and extra help by G-Zone
 
 Special thanks to greysondn
@@ -91,7 +93,7 @@ The available colors are as follows:\
 Type the color names exactly as listed here or they'll be skipped.\
 **You can create as many custom palettes as you want, so please have fun experimenting with them!**
 
-
+*Note: each time you run autoMP, it will apply the current settings to every image in the input folder, even images that have been processed already. This will overwrite the existing preview images and scripts in the output folder. You may want to store your images and scripts in a seperate folder to prevent them from being overwritten.*
 ## Q&A
 
 *Q: Why do I have to load that savestate?*
