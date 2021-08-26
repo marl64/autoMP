@@ -1,15 +1,29 @@
 [settings]
-#change the palette_select value to change the colour palette. 0=default, 1=greyscale, 2= your first custom palette you've created below, etc
-palette_select = 0
-#image scaling mode. use 0 for default(aspect ratio preserved), 1 for crop and 2 for stretch
+
+# to restore all settings to default, move or delete config.txt and run autoMP.py
+
+palette_select = 3
+# 0 - default, 1 - greyscale, 2 and up - custom palettes
+
 scaling = 0
-#enable/disable dithering. 0 is disable, 1 is enable
+# 0 - orignal, 1 - zoom, 2 - stretch
+
 dither = 1
+# 0 - off, 1 - on
 
-[greyscale]
-colors = black,darkgrey,lightgrey,white
-#add your own custom palettes here using the same format as greyscale above
-#available colours are: red, orange, yellow, lightgreen, darkgreen, lightblue, darkblue, claybrown, dirtbrown, whiteskin, magenta, black, darkgrey, lightgrey, white
-#make sure the colors are separated with only a comma, no spaces!
+[1. greyscale]
+colors = black,grey,silver,white
 
-#to restore settings to default, delete this txt and run autoMP to generate the default txt
+---------------#custom palettes#---------------
+# available colors:
+# red, orange, yellow, lime, green, cyan, blue, rust, brown, tan, magenta, black, grey, silver, white
+# separate colors with commas but no spaces
+
+[2. ]
+colors = 
+
+[3. ]
+colors =
+
+[4. ]
+colors =
