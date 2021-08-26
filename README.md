@@ -1,4 +1,4 @@
-![autoMP logo](https://raw.githubusercontent.com/marl64/autoMP/main/input/autoMP.png)\
+<img src="input/autoMP.png" width="500"/>\
 A tool for converting images into a Lua script for rendering in Mario Paint.
 
 autoMP by marl
@@ -69,7 +69,7 @@ Voila! Your automatic work of art is finished!
 
 From here, you can take screenshots (press the F12 key; screenshots are saved in the SNES9x Screenshots folder by default) or create a new savestate to keep your artwork (File > Save Game), but I don't recommend saving over Slot #0. You can also perform a hard save by clicking the robot head in the bottom center and pressing save. Remember, this modified ROM uses a controller instead of the mouse for inputs. By default, the arrow keys move your cursor and the D key selects, and you can hold the A or S keys to move your cursor faster. Once the robot is done saving your file (you can speed this up by holding Tab), it will create a .srm file in your Saves folder. This .srm is compatible with unmodified Mario Paint ROMs, and you can even load it onto a flash cart, or onto an original Mario Paint cartridge by using a Retrode, a RetroBlaster, or similar such devices. 
 
-We hope you enjoy making lots of Mario Paint masterpieces!
+**We hope you enjoy making lots of Mario Paint masterpieces!**
 
 ## Additional image settings
 
@@ -88,19 +88,22 @@ Included is a file called config.txt. This gives you extra control over how auto
 
 ### Custom palettes
 To create your own custom palettes, you can fill out the blank templates in config.txt, then make your own following the same template. You can name your palettes whatever you like, but I recommend numbering them for easier selection. Below the palette name, type "colors = " followed by the colors you want to use, **seperated by commas but no spaces.**\
-The available colors are red, orange, yellow, lime, green, cyan, blue, rust, brown, tan, magenta, black, grey, silver and white. Type the color names as listed here or they'll be skipped. **You can create as many custom palettes as you want, so please have fun experimenting with them!**
+The available colors are as follows:\
+<img src="palette.png" width="400">\
+Type the color names exactly as listed here or they'll be skipped.\
+**You can create as many custom palettes as you want, so please have fun experimenting with them!**
 
 
 ## Q&A
 
 Q: Why do I have to load that savestate?
 
-A: The stamps! Mario Paint's smallest brush size is 2x2. In order to work around this and paint with a single pixel brush, we need a custom stamp for each color in the palette which is, you guessed it, only a single pixel. To save you (and the bot) from having to make the stamps every time you want to print, you can simply load the savestate with all the stamps set up and the cursor in position, ready to draw. Plus, it saves you the trouble of catching Mario on the title screen!
+*A: The stamps! Mario Paint's smallest brush size is 2x2. In order to work around this and paint with a single pixel brush, we need a custom stamp for each color in the palette which is, you guessed it, only a single pixel. To save you (and the bot) from having to make the stamps every time you want to print, you can simply load the savestate with all the stamps set up and the cursor in position, ready to draw. Plus, it saves you the trouble of catching Mario on the title screen!*
 
 Q: What is the included snes9x.cfg file for?
 
-A: The .cfg or configuration file saves the emulator's settings. You can skip this step if you want, but I've disabled some obtrusive on-screen text, mapped the spacebar to open the Lua Script Window and the M key to toggle sound, and changed the default image size to 1x, which is easily resizable if you'd like. The inclusion of this .cfg is mostly for the convenience of the layman who may not be familiar with emulators. 
+*A: The .cfg or configuration file saves the emulator's settings. You can skip this step if you want, but I've disabled some obtrusive on-screen text, mapped the spacebar to open the Lua Script Window and the M key to toggle sound, and changed the default image size to 1x, which is easily resizable if you'd like. The inclusion of this .cfg is mostly for the convenience of the layman who may not be familiar with emulators.*
 
 Q: I don't like how my image turned out. Can I prepare an image externally and have that turned into a Lua script?
 
-A: Yes! You just have to make sure your image is no larger than 248x168px and that it adheres to Mario Paint's color palette. Once you have it how you like, simply put it in the input folder and run autoMP as normal. Check your preview image in the output folder, and if done correctly, it should be identical to your input image.
+*A: Yes! You just have to make sure your image is no larger than 248x168px and that it adheres to Mario Paint's color palette. Once you have it how you like, simply put it in the input folder and run autoMP as normal. Check your preview image in the output folder, and if done correctly, it should be identical to your input image.*
