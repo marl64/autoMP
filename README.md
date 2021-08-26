@@ -16,31 +16,31 @@ Special thanks to greysondn
 
 ## What you need
 
-###### autoMP
+#### autoMP
 Our image converting and script writing utility. Be sure to download the latest version!\
 -> https://github.com/marl64/autoMP/releases
 
-###### Python
+#### Python
 The interpreter for the Python programming language, which autoMP is built with.
 * In the installer, be sure that "Add Python to PATH" is checked on the first page, then click Customize installation.
 * For Optional Features, leave everything checked.
 * For Advanced Options, be sure to check "Decompile standard library".\
 -> https://www.python.org/downloads/
 
-###### Pillow
+#### Pillow
 A set of libraries for Python, required to run autoMP.
 * After installing Python as instructed above, open Command Prompt (Press the Windows key, then type cmd), then right-click and press "Run as administrator".
 * Type "pip install --upgrade Pillow" and press enter.
 
-###### SNES9x with Lua support
+#### SNES9x with Lua support
 This is a version of the SNES9x emulator which lets you run game-altering scripts.\
 -> https://github.com/TASVideos/snes9x-rr/releases/tag/snes9x-151-v7.1
 
-###### Lunar IPS
+#### Lunar IPS
 This is a very simple utility for patching ROM files.\
 -> https://fusoya.eludevisibility.org/lips/
 
-###### Mario Paint ROM file
+#### Mario Paint ROM file
 Mario Paint is a 1992 art program for the Super Nintendo Entertainment System/Super Famicom that came bundled with the SNES Mouse.\
 -> We can't provide a source for this file. You'll have to either dump an official cartridge yourself, or obtain it some other way. A quick web search should prove fruitful.
 
