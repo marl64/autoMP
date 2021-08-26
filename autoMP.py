@@ -9,25 +9,31 @@ config=configparser.ConfigParser(allow_no_value=True)
 if os.path.isfile('.\config.txt')==False:
 #default settings stored here. will generate a new config file with default settings if it does not exist
     config.add_section('settings')
-    config.set('settings', '#change the palette_select value to change the colour palette. 0=default, 1=greyscale, 2= your first custom palette you\'ve created below, etc')
+    config.set('settings','# to restore all settings to default, move or delete config.txt and run autoMP.py')
     config.set('settings', 'palette_select', '0')
-    config.set('settings','#image scaling mode. use 0 for default(aspect ratio preserved), 1 for crop and 2 for stretch')  
+    config.set('settings','# 0 - default, 1 - greyscale, 2 and up - custom palettes')  
     config.set('settings', 'scaling', '0')
-    config.set('settings','#enable/disable dithering. 0 is disable, 1 is enable')  
+    config.set('settings','# 0 - original, 1 - zoom, 2 - stretch')  
     config.set('settings', 'dither', '1')
+    config.set('settings','# 0 - off, 1 - on')  
     #config.set('settings','')  #config template pair, first is description comment
     #config.set('settings', '', '')
-    config.add_section('greyscale')
-    config.set('greyscale','colors','black,darkgrey,lightgrey,white')
-    config.set('greyscale','#add your own custom palettes here using the same format as greyscale above') 
-    config.set('greyscale','#available colours are: red, orange, yellow, lightgreen, darkgreen, lightblue, darkblue, claybrown, dirtbrown, whiteskin, magenta, black, darkgrey, lightgrey, white')
-    config.set('greyscale','#make sure the colors are separated with only a comma, no spaces!') 
+    config.add_section('1. greyscale')
+    config.set('1. greyscale','colors','black,grey,silver,white')
+    config.set('1. greyscale','---------------#custom palettes#---------------') 
+    config.set('1. greyscale','# available colors:')
+    config.set('1. greyscale','# red, orange, yellow, lime, green, cyan, blue, rust, brown, tan, magenta, black, grey, silver, white')
+    config.set('1. greyscale','# separate colors with commas but no spaces')
+    config.add_section('2. ')
+    config.set('2. ','colors =')
+    config.add_section('3. ')
+    config.set('3. ','colors =')
+    config.add_section('4. ')
+    config.set('4. ','colors =')
     with open(r".\config.txt", 'w') as configfile:
         config.write(configfile)
 #future config file options:
 #palette white skip
-#stretch to fill canvas - img.resize((248,168))
-#crop to fit canvas - img.fit(img, (248, 168))
 #fill canvas with colored border - pad(img, (248,168))
 
 #import settings from config.txt
@@ -42,17 +48,17 @@ colors={
 'red':[255,0,0],
 'orange':[255,130,0],
 'yellow':[255,251,0],
-'lightgreen':[0,251,0],
-'darkgreen':[0,130,66],
-'lightblue':[0,251,255],
-'darkblue':[0,0,255],
-'claybrown':[198,65,33],
-'dirtbrown':[132,97,0],
-'whiteskin':[255,195,132],
+'lime':[0,251,0],
+'green':[0,130,66],
+'cyan':[0,251,255],
+'blue':[0,0,255],
+'rust':[198,65,33],
+'brown':[132,97,0],
+'tan':[255,195,132],
 'magenta':[198,0,198],
 'black':[0,0,0],
-'darkgrey':[132,130,132],
-'lightgrey':[198,195,198],
+'grey':[132,130,132],
+'silver':[198,195,198],
 'white':[255,251,255]}
 
 #import custom palette settings
