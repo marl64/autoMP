@@ -15,7 +15,6 @@ dither = 1
 colors = black,grey,silver,white
 
 ---------------#custom palettes#---------------
-
 # available colors:
 # red, orange, yellow, lime, green, cyan, blue, rust, brown, tan, magenta, black, grey, silver, white
 # separate colors with commas but no spaces
