@@ -80,14 +80,16 @@ Included is a file called config.txt. This gives you extra control over how auto
   *  2 and onward - Your custom palettes - more info below!
 * scaling - Alters the image size to better fit it into the canvas space.
   * 0 - No effect. Retains the shape of your image.
-  * 1 - Crop. Zooms in on your image unti it fills the canvas.
+  * 1 - Zoom. Crops the edges of your image until it fills the canvas.
   * 2 - Stretch. Makes your image taller or wider until it fills the canvas.
 * dither - Turn image dithering on or off.
   * 0 - Dithering off.
   * 1 - Dithering on.
 
 ### Custom palettes
-To create your own custom palette, 
+To create your own custom palettes, you can fill out the blank templates in config.txt, then make your own following the same template. You can name your palettes whatever you like, but I recommend numbering them for easier selection. Below the palette name, type "colors = " followed by the colors you want to use, **seperated by commas but no spaces.**\
+The available colors are red, orange, yellow, lime, green, cyan, blue, rust, brown, tan, magenta, black, grey, silver and white. Type the color names as listed here or they'll be skipped. **You can create as many custom palettes as you want, so please have fun experimenting with them!**
+
 
 ## Q&A
 
