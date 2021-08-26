@@ -1,4 +1,4 @@
-# autoMP
+![autoMP logo](https://raw.githubusercontent.com/marl64/autoMP/main/input/autoMP.png)\
 Tool for converting images into a Lua script for rendering in Mario Paint
 
 autoMP by marl
@@ -7,7 +7,7 @@ based on Automatic Mario Paint by alden
 
 mariopaintFaster by alden
 
-Logo artwork and readme by G-Zone (I'm helping!)
+Logo artwork, readme and extra help by G-Zone
 
 Special thanks to greysondn
 
@@ -71,6 +71,23 @@ From here, you can take screenshots (press the F12 key; screenshots are saved in
 
 We hope you enjoy making lots of Mario Paint masterpieces!
 
+## Additional image settings
+
+Included is a file called config.txt. This gives you extra control over how autoMP processes your input image. Change the number next to the setting name to change that setting.
+* palette_select - Allows you to limit the colors your image uses.
+  *  0 - Default. Uses every color in the Mario Paint palette.
+  *  1 - Greyscale. Turns your image black and white.
+  *  3 and onward - Your custom palettes - more info below!
+* scaling - Alters the image size to better fit it into the canvas space.
+  * 0 - No effect. Retains the shape of your image.
+  * 1 - Crop. Zooms in on your image unti it fills the canvas.
+  * 2 - Stretch. Makes your image taller or wider until it fills the canvas.
+* dither - Turn image dithering on or off.
+  * 0 - Dithering off.
+  * 1 - Dithering on.
+
+### Custom palettes
+To create your own custom palette, 
 
 ## Q&A
 
