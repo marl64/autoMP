@@ -5,13 +5,13 @@ autoMP by marl
 
 Based on Automatic Mario Paint by alden
 
-mariopaintFaster by alden
-
 Logo artwork, readme and extra help by G-Zone
 
 Special thanks to greysondn
 
-*This guide was written with accessibility in mind. My hope is that anyone will be able to use autoMP, even if you, like myself, are unfamiliar with things like Python and related software. It is written assuming you're using Windows 10.  ~G-Zone*
+*This guide was written with accessibility in mind. My hope is that anyone will be able to use autoMP, even if you, like myself, are unfamiliar with things like Python and related software.  ~G-Zone*
+
+This guide is written assuming you are using Windows 10.
 
 
 ## What you need
