@@ -77,7 +77,7 @@ Included is a file called config.txt. This gives you extra control over how auto
 * palette_select - Allows you to limit the colors your image uses.
   *  0 - Default. Uses every color in the Mario Paint palette.
   *  1 - Greyscale. Turns your image black and white.
-  *  3 and onward - Your custom palettes - more info below!
+  *  2 and onward - Your custom palettes - more info below!
 * scaling - Alters the image size to better fit it into the canvas space.
   * 0 - No effect. Retains the shape of your image.
   * 1 - Crop. Zooms in on your image unti it fills the canvas.
