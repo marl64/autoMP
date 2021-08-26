@@ -5,8 +5,6 @@ autoMP by marl
 
 Based on Automatic Mario Paint by alden
 
-mariopaintFaster by alden
-
 Logo artwork, readme and extra help by G-Zone
 
 Special thanks to greysondn
