@@ -16,15 +16,15 @@ colors = black,grey,silver,white
 
 ---------------#custom palettes#---------------
 # available colors:
-# red, orange, yellow, lime, green, cyan, blue, rust, brown, tan, magenta, black, grey, silver, white
+# red,orange,yellow,lime,green,cyan,blue,rust,brown,tan,magenta,black,grey,silver,white
 # separate colors with commas but no spaces
 
 [2. ]
 colors = 
 
 [3. ]
-colors =
+colors = 
 
 [4. ]
-colors =
+colors = 
 
