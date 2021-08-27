@@ -20,7 +20,7 @@ colors = black,grey,silver,white
 # separate colors with commas but no spaces
 
 [2. ]
-colors =
+colors = 
 
 [3. ]
 colors =
