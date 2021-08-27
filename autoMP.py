@@ -67,15 +67,17 @@ if palette_select>0:
     testp=testp['colors']
     testp=testp.split(',')
     custom={x: y for (x,y) in colors.items() if x in testp}
- 
+
+mp_palette=colors
 #palette prep
 if palette_select>0:
-    colors=custom
-mp_palette=colors
+    mp_palette=custom
+characters=mp_palette
 mp_palette=[x for l in mp_palette.values() for x in l]
 numcolors=int(len(mp_palette)/3)
 padding=mp_palette[0:3]*(256-numcolors)
 mp_palette=mp_palette+padding
+
 #the palette needs to be padded with duplicate colors up to 256 to work correctly :)
 #we use the first color to ensure no extra colors are added
 #this whole section could be cleaned up a lot :/
@@ -86,11 +88,8 @@ pimage.putpalette(mp_palette)
 
 #prep specific palette for drawing routine
 mpcolors=['1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']
-x=list(colors)
-mpfinal=zip(x,mpcolors)
-mpfinal=list(mpfinal)
-mpfinal=dict(mpfinal)
-check=list(colors)
+check=list(characters)
+mpfinal=dict(zip(list(colors),mpcolors))
 mpcolors=[mpfinal[x] for x in check]
 
 #locating all relevant image files in the input folder
