@@ -5,7 +5,10 @@ from pathlib import Path
 import configparser
 from PIL import ImageOps
 
-
+if os.path.isdir('.\input')==False:
+    os.makedirs('.\input')
+if os.path.isdir('.\output')==False:
+    os.makedirs('.\output')
 config=configparser.ConfigParser(allow_no_value=True)
 if os.path.isfile('.\config.txt')==False:
 #default settings stored here. will generate a new config file with default settings if it does not exist
@@ -19,7 +22,7 @@ if os.path.isfile('.\config.txt')==False:
     config.set('settings','# 0 - off, 1 - on') 
     config.set('settings', 'preview_border', '1') 
     config.set('settings','# 0 - off, 1 - paint screen, 2 - stamp screen' ) 
-    config.set('settings', 'preview_size', '1') 
+    config.set('settings', 'preview_size', '2') 
     config.set('settings','# 1 - original resolution, 2 to 5 - scaling multiplier' ) 
     #config.set('settings','')  #config template pair, first is description comment
     #config.set('settings', '', '')

@@ -1,9 +1,10 @@
 v1.3.0
 
 added border option to preview image
+added preview image scaling option
 fixed preview image colour palette values
 changed preview image filetype to .png
-added preview image scaling option
+added input/output folder check and generation
 
 v1.2.1
 

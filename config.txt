@@ -8,7 +8,7 @@ dither = 1
 # 0 - off, 1 - on
 preview_border = 1
 # 0 - off, 1 - paint screen, 2 - stamp screen
-preview_size = 4
+preview_size = 2
 # 1 - original resolution, 2 to 5 - scaling multiplier
 
 [1. greyscale]
