@@ -5,25 +5,28 @@ from pathlib import Path
 import configparser
 from PIL import ImageOps
 
+
 config=configparser.ConfigParser(allow_no_value=True)
 if os.path.isfile('.\config.txt')==False:
 #default settings stored here. will generate a new config file with default settings if it does not exist
     config.add_section('settings')
-    config.set('settings','# to restore all settings to default, move or delete config.txt and run autoMP.py')
+    config.set('settings','to restore all settings to default, move or delete config.txt and run autoMP.py')
     config.set('settings', 'palette_select', '0')
     config.set('settings','# 0 - default, 1 - greyscale, 2 and up - custom palettes')  
     config.set('settings', 'scaling', '0')
     config.set('settings','# 0 - original, 1 - zoom, 2 - stretch')  
     config.set('settings', 'dither', '1')
-    config.set('settings','# 0 - off, 1 - on')  
+    config.set('settings','# 0 - off, 1 - on') 
+    config.set('settings', 'preview_border', '1') 
+    config.set('settings','# 0 - off, 1 - paint screen, 2 - stamp screen' ) 
     #config.set('settings','')  #config template pair, first is description comment
     #config.set('settings', '', '')
     config.add_section('1. greyscale')
     config.set('1. greyscale','colors','black,grey,silver,white')
     config.set('1. greyscale','---------------#custom palettes#---------------') 
-    config.set('1. greyscale','# available colors:')
+    config.set('1. greyscale','available colors:')
     config.set('1. greyscale','# red, orange, yellow, lime, green, cyan, blue, rust, brown, tan, magenta, black, grey, silver, white')
-    config.set('1. greyscale','# separate colors with commas but no spaces')
+    config.set('1. greyscale','separate colors with commas but no spaces')
     config.add_section('2. ')
     config.set('2. ','colors =')
     config.add_section('3. ')
@@ -43,23 +46,24 @@ palette_select=int(settings['palette_select'])
 scaling_select=int(settings['scaling'])
 config_sections=config.sections()
 dither_select=int(settings['dither'])
+preview_border=int(settings['preview_border'])
 #available colors
 colors={
 'red':[255,0,0],
-'orange':[255,130,0],
-'yellow':[255,251,0],
-'lime':[0,251,0],
-'green':[0,130,66],
-'cyan':[0,251,255],
+'orange':[255,132,0],
+'yellow':[255,255,0],
+'lime':[0,255,0],
+'green':[0,132,66],
+'cyan':[0,255,255],
 'blue':[0,0,255],
-'rust':[198,65,33],
-'brown':[132,97,0],
-'tan':[255,195,132],
+'rust':[198,66,33],
+'brown':[132,99,0],
+'tan':[255,198,132],
 'magenta':[198,0,198],
 'black':[0,0,0],
-'grey':[132,130,132],
-'silver':[198,195,198],
-'white':[255,251,255]}
+'grey':[132,132,132],
+'silver':[198,198,198],
+'white':[255,255,255]}
 
 #import custom palette settings
 if palette_select>0:
@@ -109,30 +113,46 @@ for file in Path(fin).iterdir():
         image=image.resize((248,168))
     else:
         image.thumbnail((248,168))
-
+   
     #applying correct palette
     image=image.quantize(colors=numcolors, palette=pimage, dither=dither_select)
-
+    sizex=image.size[0]
+    sizey=image.size[1]
+    pix = image.load()
     #saving image preview
     head, tail = os.path.split(file)
     root, ext=os.path.splitext(tail)
-    image.save(fout+root+".bmp")
 
-    pix = image.load()
+    if preview_border==1:
+        background=Image.open('resources\mptemplate.png')
+        cornerx=int(round((248-sizex)/2))+4
+        cornery=int(round((168-sizey)/2))+27
+        background.paste(image, (cornerx,cornery))
+        background.save(fout+root+".png")
+    elif preview_border==2:
+        background=Image.open('resources\mptemplate2.png')
+        cornerx=int(round((248-sizex)/2))+4
+        cornery=int(round((168-sizey)/2))+27
+        background.paste(image, (cornerx,cornery))
+        background.save(fout+root+".png")
+    else:
+        image=image.convert("RGB")
+        image.save(fout+root+".png")
+        
     outstring = ""
 
     #generating output string
-    for i in range(0,image.size[1]):
-        for j in range(0,image.size[0]):
+    for i in range(0,sizey):
+        for j in range(0,sizex):
         
-           outstring+= mpcolors[pix[j, i]]
-           
+            outstring+= mpcolors[pix[j, i]]
+        
     #generating a new lua file
-    file=open('mariopaintFaster.lua','r')
+    file=open('resources\mariopaintFaster.lua','r')
     lines=file.readlines()
     lines[0]="local imagestring = \"%s\"\n" %(outstring)
-    lines[1]="local imagewidth = %d\n" %(image.size[0])
-    lines[2]="local imageheight = %d\n" %(image.size[1])
+    lines[1]="local imagewidth = %d\n" %(sizex)
+    lines[2]="local imageheight = %d\n" %(sizey)
 
     file=open(fout+root+".lua",'w')
     file.writelines(lines)

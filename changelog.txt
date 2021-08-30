@@ -1,3 +1,13 @@
+v1.3.0
+
+added border option to preview image
+fixed preview image colour palette values
+changed preview image filetype to .png
+
+v1.2.1
+
+fixed custom palette bug
+
 v1.2.0
 
 added config file
