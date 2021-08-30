@@ -85,10 +85,15 @@ Included is a file called config.txt. This gives you extra control over how auto
 * dither - Turn image dithering on or off.
   * 0 - Dithering off.
   * 1 - Dithering on.
-<!-- * preview_border - add the Mario Paint window as a border to the preview image.
+<!--
+* preview_border - Add the Mario Paint window as a border to the preview image.
   * 0 - No border.
   * 1 - Mario Paint default screen
-  * 2 - Mario Paint stamp select screen -->
+  * 2 - Mario Paint stamp select screen
+* preview_size - Scale the preview image output by a multiplier.
+ * 1 - no scaling (x1)
+ * 2 to 5 - multiplier (x2 to x5) 
+-->
 
 ### Custom palettes
 To create your own custom palettes, you can fill out the blank templates in config.txt, then make your own following the same template. You can name your palettes whatever you like, but I recommend numbering them for easier selection. Below the palette name, type "colors = " followed by the colors you want to use, **seperated by commas but no spaces.**\

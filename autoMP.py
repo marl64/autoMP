@@ -19,6 +19,8 @@ if os.path.isfile('.\config.txt')==False:
     config.set('settings','# 0 - off, 1 - on') 
     config.set('settings', 'preview_border', '1') 
     config.set('settings','# 0 - off, 1 - paint screen, 2 - stamp screen' ) 
+    config.set('settings', 'preview_size', '1') 
+    config.set('settings','# 1 - original resolution, 2 to 5 - scaling multiplier' ) 
     #config.set('settings','')  #config template pair, first is description comment
     #config.set('settings', '', '')
     config.add_section('1. greyscale')
@@ -47,6 +49,7 @@ scaling_select=int(settings['scaling'])
 config_sections=config.sections()
 dither_select=int(settings['dither'])
 preview_border=int(settings['preview_border'])
+preview_size=int(settings['preview_size'])
 #available colors
 colors={
 'red':[255,0,0],
@@ -128,16 +131,19 @@ for file in Path(fin).iterdir():
         cornerx=int(round((248-sizex)/2))+4
         cornery=int(round((168-sizey)/2))+27
         background.paste(image, (cornerx,cornery))
-        background.save(fout+root+".png")
+        image=background
     elif preview_border==2:
         background=Image.open('resources\mptemplate2.png')
         cornerx=int(round((248-sizex)/2))+4
         cornery=int(round((168-sizey)/2))+27
         background.paste(image, (cornerx,cornery))
-        background.save(fout+root+".png")
+        image=background
     else:
-        image=image.convert("RGB")
-        image.save(fout+root+".png")
+        pass
+    if 1<preview_size<6:
+        image=image.resize((image.size[0]*preview_size,image.size[1]*preview_size), resample=Image.NEAREST)
+    image=image.convert("RGB")
+    image.save(fout+root+".png")
         
     outstring = ""
 
