@@ -90,6 +90,7 @@ Included is a file called config.txt. This gives you extra control over how auto
   * 0 - No border.
   * 1 - Mario Paint default screen
   * 2 - Mario Paint stamp select screen
+  * 3 and up - custom preview border, using template image in resources folder using filename 'mptemplate<number>.filetype'
 * preview_size - Scale the preview image output by a multiplier.
  * 1 - no scaling (x1)
  * 2 to 5 - multiplier (x2 to x5) 
