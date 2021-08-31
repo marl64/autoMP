@@ -99,8 +99,9 @@ Included is a file called config.txt. This gives you extra control over how auto
 To create your own custom palettes, you can fill out the blank templates in config.txt, then make your own following the same template. You can name your palettes whatever you like, but I recommend numbering them for easier selection. Below the palette name, type "colors = " followed by the colors you want to use, **seperated by commas but no spaces.**\
 The available colors are as follows:\
 <img src="resources\mppalette.png" width="400">\
-Type the color names exactly as listed here or they'll be skipped.\
-**You can create as many custom palettes as you want, so please have fun experimenting with them!**
+**Type the color names exactly as listed here or they'll be skipped.**
+
+You can create as many custom palettes as you want, so please have fun experimenting with them!
 
 *Note: each time you run autoMP, it will apply the current settings to every image in the input folder, even images that have been processed already. This will overwrite the existing preview images and scripts in the output folder. You may want to store your images and scripts in a seperate folder to prevent them from being overwritten.*
 ## Q&A
