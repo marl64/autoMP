@@ -88,12 +88,12 @@ Included is a file called config.txt. This gives you extra control over how auto
 <!--
 * preview_border - Add the Mario Paint window as a border to the preview image.
   * 0 - No border.
-  * 1 - Mario Paint default screen
-  * 2 - Mario Paint stamp select screen
-  * 3 and up - custom preview border, using template image in resources folder using filename 'mptemplate<number>.filetype'
+  * 1 - Mario Paint default screen.
+  * 2 - Mario Paint stamp select screen.
+  * 3 and onward - Custom preview border, using template image in 'resources' folder using filename 'mptemplate<number>.filetype'. For example, the default template is named 'mptemplate1.png' and is selected by setting preview_border to 1.
 * preview_size - Scale the preview image output by a multiplier.
- * 1 - no scaling (x1)
- * 2 to 5 - multiplier (x2 to x5) 
+ * 1 - No scaling (x1)
+ * 2 to 5 - Multiplier (x2 to x5) 
 -->
 
 ### Custom palettes

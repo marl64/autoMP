@@ -1,9 +1,9 @@
 from PIL import Image
+from PIL import ImageOps
 import os
-import os.path
 from pathlib import Path
 import configparser
-from PIL import ImageOps
+# need to use only pathlib, remove os 
 
 CANVAS_SIZE = (248, 168)
 SNES_WINDOW_SIZE = (256, 224)
