@@ -84,17 +84,16 @@ Included is a file called config.txt. This gives you extra control over how auto
   * 2 - Stretch. Makes your image taller or wider until it fills the canvas.
 * dither - Turn image dithering on or off.
   * 0 - Dithering off.
-  * 1 - Dithering on.
-<!--
-* preview_border - Add the Mario Paint window as a border to the preview image.
+  * 1 - Dithering on.\
+**The following options will only affect the preview images and will not change what the scripts will draw.**
+* preview_border - Add a border to the preview image.
   * 0 - No border.
-  * 1 - Mario Paint default screen.
-  * 2 - Mario Paint stamp select screen.
-  * 3 and onward - Custom preview border, using template image in 'resources' folder using filename 'mptemplate<number>.filetype'. For example, the default template is named 'mptemplate1.png' and is selected by setting preview_border to 1.
+  * 1 - Mario Paint canvas.
+  * 2 - Mario Paint canvas set to the custom stamp screen-- what you'd see after an autoMP image finished drawing.
+  * 3 and onward - Custom preview borders, using template image in 'resources' folder using filename 'mptemplate<number>.filetype'. For example, the default template is named 'mptemplate1.png' and is selected by setting preview_border to 1.
 * preview_size - Scale the preview image output by a multiplier.
  * 1 - No scaling (x1)
  * 2 to 5 - Multiplier (x2 to x5) 
--->
 
 ### Custom palettes
 To create your own custom palettes, you can fill out the blank templates in config.txt, then make your own following the same template. You can name your palettes whatever you like, but I recommend numbering them for easier selection. Below the palette name, type "colors = " followed by the colors you want to use, **seperated by commas but no spaces.**\
