@@ -89,9 +89,10 @@ Included is a file called config.txt. This gives you extra control over how auto
 * preview_border - Add a border to the preview image.
   * 0 - No border.
   * 1 - Mario Paint canvas.
-  * 2 - Mario Paint canvas set to the custom stamp screen-- what you'd see after an autoMP image finished drawing.
-  * 3 and onward - Custom preview borders, using template image in 'resources' folder using filename 'mptemplate<number>.filetype'. For example, the default template is named 'mptemplate1.png' and is selected by setting preview_border to 1.
-* preview_size - Scale the preview image output by a multiplier.
+  * 2 - Mario Paint canvas set to the custom stamp screen-- what you'd see right after an autoMP image finished drawing.
+  * 3 - autoMP logo border.
+  * 4 and onward - Your custom preview borders - more info below!
+* preview_size - Enlarge the preview image output by a multiplier.
  * 1 - No scaling (x1)
  * 2 to 5 - Multiplier (x2 to x5) 
 
@@ -103,7 +104,12 @@ The available colors are as follows:\
 
 You can create as many custom palettes as you want, so please have fun experimenting with them!
 
-*Note: each time you run autoMP, it will apply the current settings to every image in the input folder, even images that have been processed already. This will overwrite the existing preview images and scripts in the output folder. You may want to store your images and scripts in a seperate folder to prevent them from being overwritten.*
+### Custom preview borders
+You can make your own borders to be applied to your preview images. Simply use the included template and draw in the white space around the black box. Be sure to save your border image in the "resources" folder with the other borders. Your border must be titled mpborder followed by a number. Note that mpborder1,mpborder2 and mpborder3 are already present, so your first custom border should be named mpborder4. To select that border in the settings, simply set the setting to 4. 
+
+Like palettes, you can make as many preview image borders as you'd like! 
+
+*Note: each time you run autoMP, it will apply the current list of settings to every image in the input folder, even images that have been processed already. This will overwrite the existing preview images and scripts in the output folder. You may want to store your images and scripts in a seperate folder to prevent them from being overwritten.*
 ## Q&A
 
 *Q: Why do I have to load that savestate?*
