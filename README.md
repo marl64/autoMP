@@ -21,7 +21,7 @@ Our image conversion and script writing utility. Be sure to download the latest 
 -> https://github.com/marl64/autoMP/releases
 
 #### Python
-The interpreter for the Python programming language, which autoMP is built with.
+The interpreter for the Python programming language, which autoMP is built with. For best compatability, use Python 3.6+.
 * In the installer, be sure that "Add Python to PATH" is checked on the first page, then click Customize installation.
 * For Optional Features, leave everything checked.
 * For Advanced Options, be sure to check "Decompile standard library".\
