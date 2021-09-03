@@ -109,6 +109,7 @@ You can make your own borders to be applied to your preview images. Simply use t
 
 Like palettes, you can make as many preview image borders as you'd like! 
 
+
 *Note: each time you run autoMP, it will apply the current list of settings to every image in the input folder, even images that have been processed already. This will overwrite the existing preview images and scripts in the output folder. You may want to store your images and scripts in a seperate folder to prevent them from being overwritten.*
 ## Q&A
 
