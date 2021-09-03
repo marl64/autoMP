@@ -17,7 +17,7 @@ Special thanks to greysondn
 ## What you need
 
 #### autoMP
-Our image converting and script writing utility. Be sure to download the latest version!\
+Our image conversion and script writing utility. Be sure to download the latest version!\
 -> https://github.com/marl64/autoMP/releases
 
 #### Python
@@ -110,7 +110,7 @@ You can make your own borders to be applied to your preview images. Simply use t
 Like palettes, you can make as many preview image borders as you'd like! 
 
 ### Settings note:
-each time you run autoMP, it will apply the current list of settings to every image in the input folder, even images that have been processed already. This will overwrite the existing preview images and scripts in the output folder. You may want to store your images and scripts in a seperate folder to prevent them from being overwritten.
+Each time you run autoMP, it will apply the current list of settings to every image in the input folder, even images that have been processed already. This will overwrite the existing preview images and scripts in the output folder. You may want to store your images and scripts in a seperate folder to prevent them from being overwritten.
 ## Q&A
 
 *Q: Why do I have to load that savestate?*
