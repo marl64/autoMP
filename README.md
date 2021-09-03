@@ -94,7 +94,7 @@ Included is a file called config.txt. This gives you extra control over how auto
   * 4 and onward - Your custom preview borders - more info below!
 * preview_size - Enlarge the preview image output by a multiplier.
  * 1 - No scaling (x1)
- * 2 to 5 - Multiplier (x2 to x5) 
+ * 2 to 5 - Multiplier (x2 to x5) *Note: The larger the multiplier, the longer it takes for autoMP to generate your preview images.*
 
 ### Custom palettes
 To create your own custom palettes, you can fill out the blank templates in config.txt, then make your own following the same template. You can name your palettes whatever you like, but I recommend numbering them for easier selection. Below the palette name, type "colors = " followed by the colors you want to use, **seperated by commas but no spaces.**\
