@@ -74,6 +74,15 @@ From here, you can take screenshots (press the F12 key; screenshots are saved in
 ## Additional image settings
 
 Included is a file called config.txt. This gives you extra control over how autoMP processes your input images. Change the number next to the setting name to change that setting.
+
+
+**Note:**
+Each time you run autoMP, it will apply the current list of settings to every image in the input folder, even images that have been processed already. This will overwrite the existing preview images and scripts in the output folder. You may want to store your images and scripts in a seperate folder to prevent them from being overwritten.
+
+
+The available settings are as follows:
+
+
 * palette_select - Allows you to limit the colors your image uses.
   *  0 - Default. Uses every color in the Mario Paint palette.
   *  1 - Greyscale. Turns your image black and white.
@@ -84,8 +93,8 @@ Included is a file called config.txt. This gives you extra control over how auto
   * 2 - Stretch. Makes your image taller or wider until it fills the canvas.
 * dither - Turn image dithering on or off.
   * 0 - Dithering off.
-  * 1 - Dithering on.
-<!--
+  * 1 - Dithering on.\
+
 **The following options will only affect the preview images and will not change what the scripts will draw.**
 * preview_border - Add a border to the preview image.
   * 0 - No border.
@@ -94,9 +103,8 @@ Included is a file called config.txt. This gives you extra control over how auto
   * 3 - autoMP logo border.
   * 4 and onward - Your custom preview borders - more info below!
 * preview_size - Enlarge the preview image output by a multiplier.
- * 1 - No scaling (x1)
- * 2 to 5 - Multiplier (x2 to x5) *Note: The larger the multiplier, the longer it takes for autoMP to generate your preview images.*
--->
+  * 1 - Original size (x1).
+  * 2 to 5 - Multiplier (x2 to x5). *Note: The larger the multiplier, the longer it takes for autoMP to generate your preview images.*
 ### Custom palettes
 To create your own custom palettes, you can fill out the blank templates in config.txt, then make your own following the same template. You can name your palettes whatever you like, but I recommend numbering them for easier selection. Below the palette name, type "colors = " followed by the colors you want to use, **seperated by commas but no spaces.**\
 The available colors are as follows:\
@@ -106,12 +114,10 @@ The available colors are as follows:\
 You can create as many custom palettes as you want, so please have fun experimenting with them!
 <!--
 ### Custom preview borders
-You can make your own borders to be applied to your preview images. Simply use the included template and draw in the white space around the black box. Be sure to save your border image in the "resources" folder with the other borders. Your border must be titled mpborder followed by a number. Note that mpborder1, mpborder2 and mpborder3 are already present, so your first custom border should be named mpborder4. To select that border in the settings, simply set the setting to 4. 
+You can make your own borders to be applied to your preview images. Simply use the included template and draw in the white space outside the red outline. Be sure to save your border image in the "resources" folder with the other borders. Your border must be titled mpborder followed by a number. Note that mpborder1, mpborder2 and mpborder3 are already present, so your first custom border should be named mpborder4. To select that border in the settings, simply set the setting to 4. 
 
 Like palettes, you can make as many preview image borders as you'd like! 
--->
-### Settings note:
-Each time you run autoMP, it will apply the current list of settings to every image in the input folder, even images that have been processed already. This will overwrite the existing preview images and scripts in the output folder. You may want to store your images and scripts in a seperate folder to prevent them from being overwritten.
+
 ## Q&A
 
 *Q: Why do I have to load that savestate?*
