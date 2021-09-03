@@ -84,7 +84,8 @@ Included is a file called config.txt. This gives you extra control over how auto
   * 2 - Stretch. Makes your image taller or wider until it fills the canvas.
 * dither - Turn image dithering on or off.
   * 0 - Dithering off.
-  * 1 - Dithering on.\
+  * 1 - Dithering on.
+
 **The following options will only affect the preview images and will not change what the scripts will draw.**
 * preview_border - Add a border to the preview image.
   * 0 - No border.
