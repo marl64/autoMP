@@ -7,11 +7,10 @@ scaling = 0
 dither = 1
 # 0 - off, 1 - on
 preview_border = 1
-# 0 - off, 1 - paint screen, 2 - stamp screen, 3 - autoMP border, 4 and up - custom preview borders
+# 0 - off, 1 - paint screen, 2 - stamp screen, 3 - automp border, 4 and onward - custom preview borders
 preview_scale = 2
 # 1 - original resolution, 2 to 5 - scaling multiplier
-
----------------#palettes#---------------
+---------------#custom palettes#---------------
 available colors:
 # red, orange, yellow, lime, green, cyan, blue, rust, brown, tan, magenta, black, grey, silver, white
 separate colors with commas but no spaces
@@ -20,10 +19,11 @@ separate colors with commas but no spaces
 colors = black,grey,silver,white
 
 [2. ]
-colors = 
+colors =
 
 [3. ]
-colors = 
+colors =
 
 [4. ]
-colors = 
+colors =
+

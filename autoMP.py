@@ -1,9 +1,7 @@
 from PIL import Image
 from PIL import ImageOps
-import os
 from pathlib import Path
 import configparser
-# need to use only pathlib, remove os 
 
 CANVAS_SIZE = (248, 168)
 SNES_WINDOW_SIZE = (256, 224)
@@ -28,15 +26,13 @@ COLORS_RGB = {
     'white': [255, 255, 255]
 }
 # check for input/output folders; create them if they do not exist
-if not os.path.isdir('.\\input'):
-    os.makedirs('.\\input')
-if not os.path.isdir('.\\output'):
-    os.makedirs('.\\output')
+Path('.\\input').mkdir(exist_ok=True)
+Path('.\\output').mkdir(exist_ok=True)
 
 # default settings stored here. will generate a new config file with
 # default settings if it does not already exist
 config = configparser.ConfigParser(allow_no_value=True)
-if not os.path.isfile('.\\config.txt'):
+if not Path('.\\config.txt').exists():
     config.add_section('settings')
     config.set(
         'settings',
@@ -50,22 +46,22 @@ if not os.path.isfile('.\\config.txt'):
     config.set('settings', 'dither', '1')
     config.set('settings', '# 0 - off, 1 - on')
     config.set('settings', 'preview_border', '1')
-    config.set('settings', '# 0 - off, 1 - paint screen, 2 - stamp screen, 3 and up - custom preview borders')
+    config.set('settings', '# 0 - off, 1 - paint screen, 2 - stamp screen, 3 - autoMP border, 4 and onward - custom preview borders')
     config.set('settings', 'preview_scale', '2')
     config.set('settings',
                '# 1 - original resolution, 2 to 5 - scaling multiplier')
     # config.set('settings','')  # config template pair, first is description comment
     # config.set('settings', '', '')
-    config.add_section('1. greyscale')
-    config.set('1. greyscale', 'colors', 'black,grey,silver,white')
-    config.set('1. greyscale',
+    config.set('settings',
                '---------------#custom palettes#---------------')
-    config.set('1. greyscale', 'available colors:')
+    config.set('settings', 'available colors:')
     config.set(
-        '1. greyscale',
+        'settings',
         '# red, orange, yellow, lime, green, cyan, blue, rust, brown, tan, magenta, black, grey, silver, white'
     )
-    config.set('1. greyscale', 'separate colors with commas but no spaces')
+    config.set('settings', 'separate colors with commas but no spaces')
+    config.add_section('1. greyscale')
+    config.set('1. greyscale', 'colors', 'black,grey,silver,white')
     config.add_section('2. ')
     config.set('2. ', 'colors =')
     config.add_section('3. ')
@@ -115,9 +111,9 @@ mpfinal = dict(zip(list(COLORS_RGB), character_list))
 character_list = [mpfinal[x] for x in characters]
 
 # locating all relevant image files in the input folder
-dir_path = os.path.dirname(os.path.realpath(__file__))
-f_in = dir_path + "\\input"
-f_out = dir_path + "\\output\\"
+dir_path = str(Path.cwd())
+f_in = ".\input"
+f_out = ".\output\\"
 for file in Path(f_in).iterdir():
 
     # converting image to correct resolution
@@ -141,11 +137,10 @@ for file in Path(f_in).iterdir():
     pixel_colors = image.load()
 
     # saving image preview
-    head, tail = os.path.split(file)
-    root, ext = os.path.splitext(tail)
-
+    root=file.stem
+    
     if preview_border > 0:
-        background = Image.open('resources\\mptemplate' + str(preview_border) + '.png')
+        background = Image.open('resources\\mpborder' + str(preview_border) + '.png')
         paste_corners = [0, 0]
         for i in range(2):
             paste_corners[i] = int(
