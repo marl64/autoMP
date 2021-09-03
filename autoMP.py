@@ -53,7 +53,7 @@ if not Path('.\\config.txt').exists():
     # config.set('settings','')  # config template pair, first is description comment
     # config.set('settings', '', '')
     config.set('settings',
-               '---------------#custom palettes#---------------')
+               '---------------#palettes#---------------')
     config.set('settings', 'available colors:')
     config.set(
         'settings',
