@@ -112,7 +112,7 @@ The available colors are as follows:\
 **Type the color names exactly as listed here or they'll be skipped.**
 
 You can create as many custom palettes as you want, so please have fun experimenting with them!
-<!--
+
 ### Custom preview borders
 You can make your own borders to be applied to your preview images. Simply use the included template and draw in the white space outside the red outline. Be sure to save your border image in the "resources" folder with the other borders. Your border must be titled mpborder followed by a number. Note that mpborder1, mpborder2 and mpborder3 are already present, so your first custom border should be named mpborder4. To select that border in the settings, simply set the setting to 4. 
 
