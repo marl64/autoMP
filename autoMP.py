@@ -1,5 +1,4 @@
-from PIL import Image
-from PIL import ImageOps
+from PIL import Image, ImageOps, ImageEnhance
 from pathlib import Path
 import configparser
 
@@ -33,53 +32,55 @@ Path('.\\output').mkdir(exist_ok=True)
 # default settings if it does not already exist
 config = configparser.ConfigParser(allow_no_value=True)
 if not Path('.\\config.txt').exists():
-    config.add_section('settings')
-    config.set(
-        'settings',
-        'to restore all settings to default, move or delete config.txt and run autoMP.py'
-    )
-    config.set('settings', 'palette_select', '0')
-    config.set('settings',
-               '# 0 - default, 1 - greyscale, 2 and up - custom palettes')
-    config.set('settings', 'scaling', '0')
-    config.set('settings', '# 0 - original, 1 - zoom, 2 - stretch')
-    config.set('settings', 'dither', '1')
-    config.set('settings', '# 0 - off, 1 - on')
-    config.set('settings', 'preview_border', '1')
-    config.set('settings', '# 0 - off, 1 - paint screen, 2 - stamp screen, 3 - autoMP border, 4 and onward - custom preview borders')
-    config.set('settings', 'preview_scale', '2')
-    config.set('settings',
-               '# 1 - original resolution, 2 to 5 - scaling multiplier')
-    # config.set('settings','')  # config template pair, first is description comment
-    # config.set('settings', '', '')
-    config.set('settings',
-               '---------------#palettes#---------------')
-    config.set('settings', 'available colors:')
-    config.set(
-        'settings',
-        '# red, orange, yellow, lime, green, cyan, blue, rust, brown, tan, magenta, black, grey, silver, white'
-    )
-    config.set('settings', 'separate colors with commas but no spaces')
-    config.add_section('1. greyscale')
-    config.set('1. greyscale', 'colors', 'black,grey,silver,white')
-    config.add_section('2. ')
-    config.set('2. ', 'colors =')
-    config.add_section('3. ')
-    config.set('3. ', 'colors =')
-    config.add_section('4. ')
-    config.set('4. ', 'colors =')
+    
+    default_config = """
+    [settings]
+    to restore all settings to default, move or delete config.txt and run automp.py
+    palette_select = 0
+    ----- 0 - default, 1 - greyscale, 2 and up - custom palettes
+    scaling = 0
+    ----- 0 - original, 1 - zoom, 2 - stretch
+    dither = 1
+    ----- 0 - off, 1 - on
+    contrast_factor = 1
+    ----- <1 - decrease contrast, 1 - default, >1 - increase contrast
+    brightness_factor = 1
+    ----- <1 - decrease brightness, 1 - default, >1 - increase brightness
+    color_factor = 1
+    ----- <1 - decrease color balance, 1 - default, >1 - increase color balance
+    preview_border = 1
+    ----- 0 - off, 1 - paint screen, 2 - stamp screen, 3 - automp border, 4 and onward - custom preview borders
+    preview_scale = 2
+    ----- 1 - original resolution, 2 to 5 - scaling multiplier
+    ---------------# palettes #---------------
+    available colors:
+    ----- red, orange, yellow, lime, green, cyan, blue, rust, brown, tan, magenta, black, grey, silver, white
+    ----- separate colors with commas but no spaces
+    [1. greyscale]
+    colors = black,grey,silver,white
+    [2. ]
+    colors =
+    [3. ]
+    colors =
+    [4. ]
+    colors =
+    """
+    config.read_string(default_config)
     with open(r".\config.txt", 'w') as config_file:
         config.write(config_file)
 
 # import settings from config.txt
 config.read(".\\config.txt")
+config_sections = config.sections()
 settings = config['settings']
 palette_select = int(settings['palette_select'])
 scaling_select = int(settings['scaling'])
-config_sections = config.sections()
 dither_select = int(settings['dither'])
 preview_border = int(settings['preview_border'])
 preview_scale = int(settings['preview_scale'])
+contrast_factor = float(settings['contrast_factor'])
+brightness_factor = float(settings['brightness_factor'])
+color_factor = float(settings['color_factor'])
 
 mp_palette = COLORS_RGB
 # import custom palette settings
@@ -128,6 +129,16 @@ for file in Path(f_in).iterdir():
     else:
         image.thumbnail(CANVAS_SIZE)
 
+    enhancer = ImageEnhance.Contrast(image)
+    if contrast_factor != 1:
+        image = enhancer.enhance(contrast_factor)
+    enhancer = ImageEnhance.Brightness(image)
+    if brightness_factor != 1:
+        image = enhancer.enhance(brightness_factor)
+    enhancer = ImageEnhance.Color(image)
+    if color_factor != 1:
+        image = enhancer.enhance(color_factor)
+    
     # applying correct palette
     image = image.quantize(colors=num_colors,
                            palette=pimage,

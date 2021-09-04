@@ -1,3 +1,9 @@
+v1.4.0
+
+added contrast, brightness and color intensity settings
+improved drawing path for speed
+
+
 v1.3.0
 
 added border option to preview image

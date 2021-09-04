@@ -1,29 +1,35 @@
 [settings]
 to restore all settings to default, move or delete config.txt and run automp.py
 palette_select = 0
-# 0 - default, 1 - greyscale, 2 and up - custom palettes
+----- 0 - default, 1 - greyscale, 2 and up - custom palettes
 scaling = 0
-# 0 - original, 1 - zoom, 2 - stretch
+----- 0 - original, 1 - zoom, 2 - stretch
 dither = 1
-# 0 - off, 1 - on
+----- 0 - off, 1 - on
+contrast_factor = 1
+----- <1 - decrease contrast, 1 - default, >1 - increase contrast
+brightness_factor = 1
+----- <1 - decrease brightness, 1 - default, >1 - increase brightness
+color_factor = 1
+----- <1 - decrease color balance, 1 - default, >1 - increase color balance
 preview_border = 1
-# 0 - off, 1 - paint screen, 2 - stamp screen, 3 - automp border, 4 and onward - custom preview borders
+----- 0 - off, 1 - paint screen, 2 - stamp screen, 3 - automp border, 4 and onward - custom preview borders
 preview_scale = 2
-# 1 - original resolution, 2 to 5 - scaling multiplier
+----- 1 - original resolution, 2 to 5 - scaling multiplier
 ---------------# palettes #---------------
-available colors:
-# red, orange, yellow, lime, green, cyan, blue, rust, brown, tan, magenta, black, grey, silver, white
-separate colors with commas but no spaces
+available colors = 
+----- red, orange, yellow, lime, green, cyan, blue, rust, brown, tan, magenta, black, grey, silver, white
+----- separate colors with commas but no spaces
 
 [1. greyscale]
 colors = black,grey,silver,white
 
 [2. ]
-colors =
+colors = 
 
 [3. ]
-colors =
+colors = 
 
 [4. ]
-colors =
+colors = 
 
