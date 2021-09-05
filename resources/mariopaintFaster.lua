@@ -15,6 +15,13 @@ local topbound = 24
 local rightbound = 250        
 local bottombound = 192       
 
+local stampchange = {240,13}
+local stampchange2 = {240,10}
+local arrow = {234,210}
+local fillselect = {160,210}
+local centre = {128,104}
+local stampselect = {100,210}
+
 local stepsize = 1
 local thisposition = 1
 local colorSelected = '-'
@@ -33,7 +40,7 @@ end
 table.sort(colorTotals, function(a,b) return a[1]<b[1] end) --use < for small to large, > for large to small
 
 colorList = colorTotals
-
+colorMost = colorTotals[15][2]
 --for centering images that do not match the aspect ratio
 leftbound = math.floor(leftbound + (rightbound-imagewidth-leftbound)/2)
 topbound = math.floor(topbound + (bottombound-imageheight-topbound)/2)
@@ -44,6 +51,50 @@ local function setjoy(buttons,frames)
       snes9x.frameadvance()
    end
 end
+
+local function moveto(position)
+   local targetx = position[1]
+   local targety = position[2]
+
+   local currentx = memory.readbyte(cursorx)
+   local currenty = memory.readbyte(cursory)
+
+   while math.abs(currentx-targetx)>5 or math.abs(currenty-targety)>5 do
+      if currentx < targetx then
+         setjoy({right=1,L=1},3)
+      end
+      if currentx > targetx then
+         setjoy({left=1,L=1},3)
+      end
+      if currenty < targety then
+         setjoy({down=1,L=1},3)
+      end
+      if currenty > targety then
+         setjoy({up=1,L=1},3)
+      end
+      currentx = memory.readbyte(cursorx)
+      currenty = memory.readbyte(cursory)
+   end
+
+   while currentx ~= targetx or currenty ~= targety do
+      if currentx < targetx then
+         setjoy({right=1},3)
+      end
+      if currentx > targetx then
+         setjoy({left=1},3)
+      end
+      if currenty < targety then
+         setjoy({down=1},3)
+      end
+      if currenty > targety then
+         setjoy({up=1},3)
+      end
+      currentx = memory.readbyte(cursorx)
+      currenty = memory.readbyte(cursory)
+   end
+   setjoy({X=1},3)
+end
+
 
 local function paintdot(dotx,doty)
    local targetx = (dotx * stepsize) + leftbound
@@ -84,8 +135,7 @@ local function paintdot(dotx,doty)
       currentx = memory.readbyte(cursorx)
       currenty = memory.readbyte(cursory)
    end
-   joypad.set(1,{X=1})
-   snes9x.frameadvance()
+   setjoy({X=3},3)
 end
 
 local function chooseColor(thecolor)
@@ -149,7 +199,38 @@ local function chooseColor(thecolor)
    colorSelected = thecolor
 end
 
-for k = 1,15 do
+local function fillcolor(Most)
+   moveto(stampchange)
+   chooseColor(Most)
+   moveto(arrow)
+   moveto(fillselect)
+   moveto(centre)
+   --wait somehow
+   moveto(stampselect)
+   moveto(arrow)
+   moveto(stampchange2)
+   setjoy({X=1},3)
+   setjoy({X=1},3)
+   setjoy({X=1},3)
+   setjoy({X=1},3)
+   setjoy({X=1},3)
+   setjoy({X=1},3)
+   setjoy({X=1},3)
+   setjoy({X=1},3)
+   setjoy({X=1},3)
+   setjoy({X=1},3)
+   setjoy({X=1},3)
+   setjoy({X=1},3)
+   setjoy({X=1},3)
+end
+
+local numcolors=15
+if imagewidth==248 and imageheight==168 then
+   fillcolor(colorMost)
+   numcolors=14
+end
+
+for k = 1,numcolors do
    -- snes9x.message(colorTotals[k][2])
    chooseColor(colorTotals[k][2])
 
