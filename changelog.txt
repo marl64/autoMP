@@ -1,7 +1,7 @@
 v1.4.0
 
 added contrast, brightness and color intensity settings
-improved drawing path for speed
+improved drawing path for speed - 'boustrophedon'
 
 
 v1.3.0

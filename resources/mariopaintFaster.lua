@@ -155,7 +155,7 @@ for k = 1,15 do
 
    for i = 0,imageheight-1 do
 
-      if math.fmod(i+1,2)==0 then
+      if math.fmod(i+1,2)==0 then -- boustrophedon :))))
          for j = imagewidth-1,0,-1 do
             thisposition = i*imagewidth + j + 1
 

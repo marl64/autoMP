@@ -54,7 +54,7 @@ if not Path('.\\config.txt').exists():
     ----- 1 - original resolution, 2 to 5 - scaling multiplier
     ---------------# palettes #---------------
     available colors:
-    ----- red, orange, yellow, lime, green, cyan, blue, rust, brown, tan, magenta, black, grey, silver, white
+    ----- red,orange,yellow,lime,green,cyan,blue,rust,brown,tan,magenta,black,grey,silver,white
     ----- separate colors with commas but no spaces
     [1. greyscale]
     colors = black,grey,silver,white
