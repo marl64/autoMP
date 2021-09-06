@@ -94,7 +94,20 @@ The available settings are as follows:
 * dither - Turn image dithering on or off.
   * 0 - Dithering off.
   * 1 - Dithering on.
-
+<!--
+* contrast_factor - Changes the color contrast of your image. **These values can include decimals.**
+  * 1 - Normal.
+  * Below 1 - Lower contrast.
+  * Above 1 - Higher contrast.
+* brightness_factor - Changes how light or dark your image is. **These values can include decimals.**
+  * 1 - Normal.
+  * Below 1 - Darker image.
+  * Above 1 - Brighter image.
+* saturation_factor - Changes your image's color saturation. **These values can include decimals.**
+  * 1 - Normal.
+  * Below 1 - Lower saturation.
+  * Above 1 - Higher saturation.
+-->
 **The following options will only affect the preview images and will not change what the scripts will draw.**
 * preview_border - Add a border to the preview image.
   * 0 - No border.
