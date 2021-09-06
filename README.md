@@ -94,7 +94,7 @@ The available settings are as follows:
 * dither - Turn image dithering on or off.
   * 0 - Dithering off.
   * 1 - Dithering on.
-<--
+<!--
 **For these 3 "factor" settings, you can insert any number you want, including decimals. For example, if 1 is too dark and 2 is too bright, try 1.5 for better results. If 1 is too bright, try 0.8, etc.**
 * contrast_factor - Changes the color contrast of your image.
   * 1 - Normal contrast.
