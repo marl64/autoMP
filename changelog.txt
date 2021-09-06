@@ -2,7 +2,7 @@ v1.4.0
 
 added contrast, brightness and color intensity settings
 improved drawing path for speed - 'boustrophedon'
-added most common color prefill for speed - full frame images only
+added most common color prefill for speed
 
 
 v1.3.0

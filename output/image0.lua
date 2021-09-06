@@ -44,6 +44,8 @@ colorMost = colorTotals[15][2]
 --for centering images that do not match the aspect ratio
 leftbound = math.floor(leftbound + (rightbound-imagewidth-leftbound)/2)
 topbound = math.floor(topbound + (bottombound-imageheight-topbound)/2)
+rightbound = leftbound + imagewidth
+bottombound = topbound + imageheight
 
 local function setjoy(buttons,frames)
    joypad.set(1,buttons)
@@ -200,7 +202,7 @@ local function chooseColor(thecolor)
 end
 
 local function fillcolor(Most)
-   moveto(stampchange)
+   moveto(stampchange2)
    chooseColor(Most)
    moveto(arrow)
    moveto(fillselect)
@@ -223,11 +225,51 @@ local function fillcolor(Most)
    setjoy({X=1},3)
    setjoy({X=1},3)
 end
-
 local numcolors=15
-if imagewidth==248 and imageheight==168 then
+
+if imageheight<168 and imagewidth<248 then
+   chooseColor(colorMost)
+   for j=0,imagewidth-1 do
+      paintdot(j,0)
+   end
+   for j=0,imageheight-1 do
+      paintdot(imagewidth-1,j)
+   end
+   for j=imagewidth-1,0,-1 do
+      paintdot(j,imageheight-1)
+   end
+   for j=imageheight-1,0,-1 do
+      paintdot(0,j)
+   end
    fillcolor(colorMost)
    numcolors=14
+
+elseif imageheight<168 and imagewidth==248 then
+   chooseColor(colorMost)
+   for j=0,248 do
+      paintdot(j,0)
+   end
+   for j=248,0,-1 do
+      paintdot(j,imageheight-1)
+   end
+   fillcolor(colorMost)
+   numcolors=14
+
+elseif imageheight==168 and imagewidth<248 then
+   chooseColor(colorMost)
+   for j=0,168 do
+      paintdot(0,j)
+   end
+   for j=168,0,-1 do
+      paintdot(imagewidth-1,j)
+   end
+   fillcolor(colorMost)
+   numcolors=14
+
+elseif imagewidth==248 and imageheight==168 then
+   fillcolor(colorMost)
+   numcolors=14
+
 end
 
 for k = 1,numcolors do
