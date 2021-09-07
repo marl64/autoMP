@@ -95,7 +95,7 @@ The available settings are as follows:
   * 0 - Dithering off.
   * 1 - Dithering on.
 <!--
-**For the following 3 "factor" settings, you can insert any number you want, including decimals. For example, if 1 is too dark and 2 is too bright, try 1.5 for better results. If 1 is too bright, try 0.8, etc. You cannot use negative numbers.**
+**For the following 3 "factor" settings, you can insert any number you want, including single digit decimals. For example, if 1 is too dark and 2 is too bright, try 1.5 for better results. If 1 is too bright, try 0.8, etc. You cannot use negative numbers.**
 * contrast_factor - Changes the color contrast of your image.
   * 1 - Normal contrast.
   * Below 1 - Lower contrast.
@@ -109,7 +109,7 @@ The available settings are as follows:
   * Below 1 - Lower saturation.
   * Above 1 - Higher saturation.
 -->
-**The following options will only affect the preview images and will not change what the scripts will draw.**
+**The following 2 "preview" options will only affect the preview images and will not change what the Lua scripts will draw.**
 * preview_border - Add a border to the preview image.
   * 0 - No border.
   * 1 - Mario Paint canvas.
