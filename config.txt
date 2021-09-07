@@ -10,7 +10,7 @@ contrast_factor = 1
 ----- <1 - decrease contrast, 1 - default, >1 - increase contrast
 brightness_factor = 1
 ----- <1 - decrease brightness, 1 - default, >1 - increase brightness
-color_factor = 1
+saturation_factor = 1
 ----- <1 - decrease color balance, 1 - default, >1 - increase color balance
 preview_border = 1
 ----- 0 - off, 1 - paint screen, 2 - stamp screen, 3 - automp border, 4 and onward - custom preview borders

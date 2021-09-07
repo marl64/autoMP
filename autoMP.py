@@ -46,7 +46,7 @@ if not Path('.\\config.txt').exists():
     ----- <1 - decrease contrast, 1 - default, >1 - increase contrast
     brightness_factor = 1
     ----- <1 - decrease brightness, 1 - default, >1 - increase brightness
-    color_factor = 1
+    saturation_factor = 1
     ----- <1 - decrease color balance, 1 - default, >1 - increase color balance
     preview_border = 1
     ----- 0 - off, 1 - paint screen, 2 - stamp screen, 3 - automp border, 4 and onward - custom preview borders
@@ -80,7 +80,7 @@ preview_border = int(settings['preview_border'])
 preview_scale = int(settings['preview_scale'])
 contrast_factor = float(settings['contrast_factor'])
 brightness_factor = float(settings['brightness_factor'])
-color_factor = float(settings['color_factor'])
+saturation_factor = float(settings['saturation_factor'])
 
 mp_palette = COLORS_RGB
 # import custom palette settings
@@ -136,8 +136,8 @@ for file in Path(f_in).iterdir():
     if brightness_factor != 1:
         image = enhancer.enhance(brightness_factor)
     enhancer = ImageEnhance.Color(image)
-    if color_factor != 1:
-        image = enhancer.enhance(color_factor)
+    if saturation_factor != 1:
+        image = enhancer.enhance(saturation_factor)
     
     # applying correct palette
     image = image.quantize(colors=num_colors,
