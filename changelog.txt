@@ -1,6 +1,6 @@
 v1.4.0
 
-added contrast, brightness and color intensity settings
+added contrast, brightness and color saturation settings
 improved drawing path for speed - 'boustrophedon'
 added most common color prefill for speed
 
