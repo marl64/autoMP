@@ -114,7 +114,7 @@ The available settings are as follows:
   * 0 - No border.
   * 1 - Mario Paint canvas.
   * 2 - Mario Paint canvas set to the custom stamp screen-- what you'd see right after an autoMP image finished drawing.
-  * 3 - autoMP border.
+  * 3 - Special autoMP border.
   * 4 and onward - Your custom preview borders - more info below!
 * preview_size - Enlarge the preview image output by a multiplier.
   * 1 - Original size (x1).
