@@ -1,9 +1,14 @@
+v1.5.0
+
+added optional GUI - "autoMP_GUI.pyw"
+    -adjust image settings and reprocess quickly
+
+
 v1.4.0
 
 added contrast, brightness and color saturation settings
 improved drawing path for speed - 'boustrophedon'
 added most common color prefill for speed
-
 
 v1.3.0
 

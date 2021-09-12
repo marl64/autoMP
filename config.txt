@@ -1,7 +1,7 @@
 [settings]
 to restore all settings to default, move or delete config.txt and run automp.py
-palette_select = 0
------ 0 - default, 1 - greyscale, 2 and up - custom palettes
+palette_select = default
+----- default, greyscale, custom palette names etc.
 scaling = 0
 ----- 0 - original, 1 - zoom, 2 - stretch
 dither = 1
@@ -21,15 +21,15 @@ available colors =
 ----- red,orange,yellow,lime,green,cyan,blue,rust,brown,tan,magenta,black,grey,silver,white
 ----- separate colors with commas but no spaces
 
-[1. greyscale]
+[greyscale]
 colors = black,grey,silver,white
 
-[2. ]
+[example1]
 colors = 
 
-[3. ]
+[example2]
 colors = 
 
-[4. ]
+[example3]
 colors = 
 
