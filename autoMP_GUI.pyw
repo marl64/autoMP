@@ -1,9 +1,13 @@
+from tkinter.constants import DISABLED
 import autoMP
 import tkinter as tk
 from tkinter import ttk
-import configparser
+from pathlib import Path
+# load config file/create it
 config=autoMP.setup_checks()
 config_sections=config.sections()
+
+# setting config values for main script to use -- does not save to config file yet!!
 def palette_check(self):
     config.set("settings","palette_select",palette_var.get())
 def scaling_check():
@@ -22,17 +26,19 @@ def preview_border_check(self):
     config.set("settings","preview_border",preview_border_var.get())
 
 window=tk.Tk()
+window.iconphoto(False,tk.PhotoImage(file='.\input\\autoMP.png'))
 window.resizable(0,0)
 window.title("autoMP")
 main_frame=ttk.Frame()
-dither_var=tk.StringVar(None,"1")
-scaling_var=tk.StringVar(None,"0")
-palette_var=tk.StringVar(None,"default")
-contrast_var=tk.StringVar(None,"1")
-brightness_var=tk.StringVar(None,"1")
-saturation_var=tk.StringVar(None,"1")
-preview_scale_var=tk.StringVar(None,"2")
-preview_border_var=tk.StringVar(None,"0")
+
+dither_var=tk.StringVar(None,config['settings']['dither'])
+scaling_var=tk.StringVar(None,config['settings']['scaling'])
+palette_var=tk.StringVar(None,config['settings']['palette_select'])
+contrast_var=tk.StringVar(None,config['settings']['contrast_factor'])
+brightness_var=tk.StringVar(None,config['settings']['brightness_factor'])
+saturation_var=tk.StringVar(None,config['settings']['saturation_factor'])
+preview_scale_var=tk.StringVar(None,config['settings']['preview_scale'])
+preview_border_var=tk.StringVar(None,config['settings']['preview_border'])
 
 img_settings_frame=ttk.LabelFrame(main_frame,text="Image Settings")
 preview_settings_frame=ttk.LabelFrame(main_frame,text="Preview Settings")
@@ -75,9 +81,32 @@ preview_border_frame=ttk.LabelFrame(preview_settings_frame,text="Preview Border"
 preview_border_widget=ttk.Entry(preview_border_frame,textvariable=preview_border_var,width=3)
 preview_border_widget.bind('<FocusOut>',preview_border_check)
 
+def settings_default():
+    config.read_string(autoMP.DEFAULT_SETTINGS)
+    with open(r".\config.txt", 'w') as config_file:
+            config.write(config_file)
+    dither_var.set(config['settings']['dither'])
+    scaling_var.set(config['settings']['scaling'])
+    palette_var.set(config['settings']['palette_select'])
+    contrast_var.set(config['settings']['contrast_factor'])
+    brightness_var.set(config['settings']['brightness_factor'])
+    saturation_var.set(config['settings']['saturation_factor'])
+    preview_scale_var.set(config['settings']['preview_scale'])
+    preview_border_var.set(config['settings']['preview_border'])
+
+default_settings_widget=ttk.Button(text="Default Settings", command=settings_default)
+
+def mainscript():
+    with open(r".\config.txt", 'w') as config_file:
+            config.write(config_file)
+    autoMP.palette_prep()
+    for autoMP.file in Path(autoMP.F_IN).iterdir():
+        autoMP.autoMP_func()
+
 process_widget=ttk.Button(
     text="Process Images",
-    command=autoMP.autoMP_func,
+    
+    command=mainscript,
    )
 main_frame.pack(padx=20,pady=10)
 img_settings_frame.pack(side=tk.LEFT)
@@ -99,5 +128,7 @@ preview_scale_frame.pack()
 preview_scale_widget.pack()
 preview_border_frame.pack()
 preview_border_widget.pack()
+default_settings_widget.pack(side=tk.RIGHT)
 process_widget.pack()
+
 window.mainloop()
