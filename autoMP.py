@@ -29,10 +29,10 @@ COLORS_RGB = {
 CHARACTER_LIST = [
         '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'
     ]
-
-F_IN = ".\input"
-F_OUT = ".\output\\"
-
+path=Path.cwd()
+F_IN = path / 'input'
+F_OUT = path / 'output'
+CONF_PATH = path / 'config.txt'
 DEFAULT_SETTINGS = """
 [settings] = 
 to restore all settings to default, move or delete config.txt and run automp.py
@@ -70,26 +70,26 @@ colors =
 def setup_checks():
     """Check for I/O directories and config file, create them if necessary"""
     # check for input/output folders; create them if they do not exist
-    Path('.\\input').mkdir(exist_ok=True)
-    Path('.\\output').mkdir(exist_ok=True)
+    Path(F_IN).mkdir(exist_ok=True)
+    Path(F_OUT).mkdir(exist_ok=True)
 
     # default settings stored here. will generate a new config file with
     # default settings if it does not already exist
     global config
     config = configparser.ConfigParser(allow_no_value=True)
-    if not Path('.\\config.txt').exists():
+    if not Path(CONF_PATH).exists():
         
         config.read_string(DEFAULT_SETTINGS+CUSTOM_PALETTE_TEMPLATE)
-        with open(r".\config.txt", 'w') as config_file:
+        with open(CONF_PATH, 'w') as config_file:
             config.write(config_file)
         
 
-    config.read(".\\config.txt")
+    config.read(CONF_PATH)
     return config
 
 def palette_prep():
 # import settings from config.txt, if being called as a module
-    config.read(".\\config.txt")
+    config.read(CONF_PATH)
 
     global config_sections
     config_sections = config.sections()
@@ -167,7 +167,7 @@ def autoMP_func():
     
     # apply preview border
     if preview_border > 0:
-        background = Image.open('resources\\mpborder' + str(preview_border) + '.png')
+        background = Image.open(path / 'resources' / Path('mpborder' + str(preview_border) + '.png'))
         paste_corners = [0, 0]
         for i in range(2):
             paste_corners[i] = int(
@@ -183,7 +183,7 @@ def autoMP_func():
             (image.size[0] * preview_scale, image.size[1] * preview_scale),
             resample=Image.NEAREST)
     image = image.convert("RGB") # to ensure image saves correctly
-    image.save(F_OUT + root + ".png")
+    image.save(F_OUT / Path(root + '.png'))
 
     # generate output string
     outstring = ""
@@ -193,13 +193,13 @@ def autoMP_func():
             outstring += final_character_list[pixel_colors[j, i]]
 
     # generate a new Lua file
-    lua_template = open('resources\\mariopaintFaster.lua', 'r')
+    lua_template = open(Path(path / 'resources' / 'mariopaintFaster.lua'), 'r')
     lines = lua_template.readlines()
     lines[0] = "local imagestring = \"%s\"\n" % (outstring)
     lines[1] = "local imagewidth = %d\n" % (preview_size[0])
     lines[2] = "local imageheight = %d\n" % (preview_size[1])
 
-    lua_output = open(F_OUT + root + ".lua", 'w')
+    lua_output = open(F_OUT / Path(root + '.lua'), 'w')
     lua_output.writelines(lines)
     lua_output.close()
 

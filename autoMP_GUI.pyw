@@ -1,4 +1,3 @@
-from tkinter.constants import DISABLED
 import autoMP
 import tkinter as tk
 from tkinter import ttk
@@ -25,8 +24,9 @@ def preview_scale_check(self):
 def preview_border_check(self):
     config.set("settings","preview_border",preview_border_var.get())
 
+path=Path.cwd()
 window=tk.Tk()
-window.iconphoto(False,tk.PhotoImage(file='.\input\\autoMP.png'))
+window.iconphoto(False,tk.PhotoImage(file=autoMP.F_IN / 'autoMP.png'))
 window.resizable(0,0)
 window.title("autoMP")
 main_frame=ttk.Frame()
@@ -83,7 +83,7 @@ preview_border_widget.bind('<FocusOut>',preview_border_check)
 
 def settings_default():
     config.read_string(autoMP.DEFAULT_SETTINGS)
-    with open(r".\config.txt", 'w') as config_file:
+    with open(path / 'config.txt', 'w') as config_file:
             config.write(config_file)
     dither_var.set(config['settings']['dither'])
     scaling_var.set(config['settings']['scaling'])
@@ -97,7 +97,7 @@ def settings_default():
 default_settings_widget=ttk.Button(text="Default Settings", command=settings_default)
 
 def mainscript():
-    with open(r".\config.txt", 'w') as config_file:
+    with open(path / 'config.txt', 'w') as config_file:
             config.write(config_file)
     autoMP.palette_prep()
     for autoMP.file in Path(autoMP.F_IN).iterdir():
