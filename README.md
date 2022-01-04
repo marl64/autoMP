@@ -47,7 +47,7 @@ Mario Paint is a 1992 art program for the Super Nintendo Entertainment System/Su
 
 ## Setup
 
-1. Download and extract the autoMP source code.
+1. Download and extract the autoMP files.
 
 2. If they don't already exist, create 2 new folders, "input" and "output" in the autoMP folder.
 
