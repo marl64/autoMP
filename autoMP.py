@@ -82,7 +82,6 @@ def setup_checks():
         config.read_string(DEFAULT_SETTINGS+CUSTOM_PALETTE_TEMPLATE)
         with open(CONF_PATH, 'w') as config_file:
             config.write(config_file)
-        
 
     config.read(CONF_PATH)
     return config

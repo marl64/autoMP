@@ -1,5 +1,5 @@
 [settings]
-to restore all settings to default, move or delete config.txt and run automp.py
+to restore all settings to default, delete config.txt and run automp.py
 palette_select = default
 ----- default, greyscale, custom palette names etc.
 scaling = 0

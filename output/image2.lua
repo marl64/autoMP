@@ -2,14 +2,16 @@ local imagestring = "CC9D9D9D9599D9D99D99D9599D9C95CCCCCCCC9CC5C9C9C9C9CC95CC9C5
 local imagewidth = 224
 local imageheight = 168
 
--- original script by alden
--- modified for autoMP by marl
+-- Original script by alden
+-- Modified for autoMP by marl
 snes9x.speedmode("turbo")
 
+-- Cursor memory addresses
 local cursorx = 0x7e0226
 local cursory = 0x7e0227
-local cursortype = 0x7E0426 -- 86 stamp, 84 color picker
+local cursortype = 0x7E0426 -- 86 - stamp, 84 - color picker
 
+-- Bounding area for the cursor. Not super precise but it works
 local leftbound = 2 
 local topbound = 24  
 local rightbound = 250        
@@ -26,22 +28,22 @@ local stepsize = 1
 local thisposition = 1
 local colorSelected = '-'
 
-local colorList2={'1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'}
-local colorTotals={}
-local colorList={}
+local colorList2 = {'1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'}
+local colorTotals = {}
+local colorList = {}
 
-for i=1,15 do
-   colorTotals[i] = {0,colorList2[i]}
+for i = 1, 15 do
+   colorTotals[i] = {0, colorList2[i]}
    for w in string.gfind(imagestring, colorList2[i]) do
       colorTotals[i][1] = colorTotals[i][1] + 1
    end
 end
 
-table.sort(colorTotals, function(a,b) return a[1]<b[1] end) --use < for small to large, > for large to small
+table.sort(colorTotals, function(a,b) return a[1] < b[1] end) -- Use < for small to large, > for large to small
 
 colorList = colorTotals
 colorMost = colorTotals[15][2]
---for centering images that do not match the aspect ratio
+-- For centering images that do not match the aspect ratio
 leftbound = math.floor(leftbound + (rightbound-imagewidth-leftbound)/2)
 topbound = math.floor(topbound + (bottombound-imageheight-topbound)/2)
 rightbound = leftbound + imagewidth
