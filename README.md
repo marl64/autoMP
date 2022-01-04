@@ -33,7 +33,7 @@ A set of libraries for Python, required to run autoMP.
 * Type "pip install --upgrade Pillow" and press enter.
 
 #### SNES9x with Lua support
-This is a version of the SNES9x emulator which lets you run game-altering scripts.\
+This is a version of the SNES9x emulator which lets you run game-altering scripts. We have provided a configuration file that makes it slightly mroe convenient to draw images in Mario Paint.\
 -> https://github.com/TASVideos/snes9x-rr/releases/tag/snes9x-151-v7.1
 
 #### Lunar IPS
