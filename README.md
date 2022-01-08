@@ -33,7 +33,7 @@ A set of libraries for Python, required to run autoMP.
 * Type "pip install --upgrade Pillow" and press enter.
 
 #### SNES9x with Lua support
-This is a version of the SNES9x emulator which lets you run game-altering scripts. We have provided a configuration file that makes it slightly mroe convenient to draw images in Mario Paint.\
+This is a version of the SNES9x emulator which lets you run game-altering scripts. We have provided a configuration file that makes it slightly more convenient to draw images in Mario Paint. autoMP is not confirmed to work with any other emulators at this time.\
 -> https://github.com/TASVideos/snes9x-rr/releases/tag/snes9x-151-v7.1
 
 #### Lunar IPS
@@ -49,19 +49,22 @@ Mario Paint is a 1992 art program for the Super Nintendo Entertainment System/Su
 
 1. Download and extract the autoMP files.
 
-2. If they don't already exist, create 2 new folders, "input" and "output" in the autoMP folder.
+2. Open Lunar IPS. Click "Apply IPS Patch" and browse for the patch we provided, MarioPaintJUh1Joystick.ips, then for the Mario Paint ROM you want to patch it to. This modifies your ROM to accept the gamepad rather than the mouse for inputs, which is imperative for autoMP to function properly.
 
-3. Place the image(s) you want to use into the input folder. Pretty much any image file should work. If one isn't accepted, try saving it as a common filetype, like .jpg or .png.
+3. Extract the SNES9x emulator into a seperate folder from autoMP. Place the provided snes9x.cfg file into your SNES9x folder (if there already is one, overwrite it), and make sure there are 2 sub-folders named "Roms" and "Saves". Place your patched ROM in the Roms folder and place the provided savestate, MarioPaint.000, in the Saves folder. **Make sure both your patched ROM and the savestate have the same filename. If they don't, rename one or both of them so that they match.**
 
-4. Double-click autoMP.py. This should fill the output folder with preview images, as well as lua scripts for each image in your input folder.
+4. If they don't already exist, create 2 new folders, "input" and "output" in the autoMP folder.
 
-5. Open Lunar IPS. Click "Apply IPS Patch" and browse for the patch we provided, MarioPaintJUh1Joystick.ips, then for the Mario Paint ROM you want to patch it to. This modifies your ROM to accept the gamepad rather than the mouse for inputs, which is imperative for autoMP to function properly.
 
-6. Extract the SNES9x emulator into a seperate folder from autoMP. Place the provided snes9x.cfg file into your SNES9x folder (if there already is one, overwrite it), and make sure there are 2 sub-folders named "Roms" and "Saves". Place your patched ROM in the Roms folder and place the provided savestate, MarioPaint.000, in the Saves folder. **Make sure both your patched ROM and the savestate have the same filename. If they don't, rename one or both of them so that they match.**
+## Using autoMP
 
-7. Open SNES9x and load the ROM (Ctrl + O, or File > Open ROM...), then load the supplied savestate (Press the F1 key, or go to File > Load Game > Slot #0). You should now be on a blank canvas with the stamps page open at the top, with each stamp set to a single colored pixel.
+1. Place the image(s) you want to use into the input folder. Pretty much any image file should work. If one isn't accepted, try saving it as a common filetype, like .jpg or .png.
 
-8. Load your chosen Lua script into SNES9x (Press spacebar twice, or go to File > Lua Scripting > New Lua Scripting Window..., then choose your file from the output folder), then press Run and watch the image draw! *(Note: you can press the M key to toggle the sound.)* Do not close the scripting window or the drawing will stop. The drawing is complete once the game returns to normal speed. 
+2. Open the file named autoMP_GUI and adjust the image settings to your liking. An explanation as to what each setting does is located below. When you're done, click "Process Images". This should fill the output folder with preview images, as well as lua scripts for each image in your input folder.
+
+3. Open SNES9x and load the ROM (Ctrl + O, or File > Open ROM...), then load the supplied savestate (Press the F1 key, or go to File > Load Game > Slot #0). You should now be on a blank canvas with the stamps page open at the top, with each stamp set to a single colored pixel.
+
+4. Load your chosen Lua script into SNES9x (Press spacebar twice, or go to File > Lua Scripting > New Lua Scripting Window..., then choose your file from the output folder), then press Run and watch the image draw! *(Note: you can press the M key to toggle the sound.)* Do not close the scripting window or the drawing will stop. The drawing is complete once the game returns to normal speed. 
 
 
 Voila! Your automatic work of art is finished!
@@ -71,9 +74,9 @@ From here, you can take screenshots (press the F12 key; screenshots are saved in
 
 **We hope you enjoy making lots of Mario Paint masterpieces!**
 
-## Additional image settings
+## Image settings
 
-Included is a file called config.txt. This gives you extra control over how autoMP processes your input images. Change the number next to the setting name to change that setting.
+The autoMP GUI gives you a bit of control over how autoMP processes your input images. Your settings are saved each time you change them, but you can always click "Default Settings" to wipe them clean. When I am adjusting image settings, I like to have the target image open in an image viewer so I can see how it changes each time I press "Process Images". I've found this to be the best way to dial in the exact look I'm going for.
 
 
 **Note:**
@@ -83,52 +86,45 @@ Each time you run autoMP, it will apply the current list of settings to every im
 The available settings are as follows:
 
 
-* palette_select - Allows you to limit the colors your image uses.
-  *  0 - Default. Uses every color in the Mario Paint palette.
-  *  1 - Greyscale. Turns your image black and white.
-  *  2 and onward - Your custom palettes - more info below!
-* scaling - Alters the image size to better fit it into the canvas space.
-  * 0 - No effect. Retains the shape of your image.
-  * 1 - Zoom. Crops the edges of your image until it fills the canvas.
-  * 2 - Stretch. Makes your image taller or wider until it fills the canvas.
-* dither - Turn image dithering on or off.
-  * 0 - Dithering off.
-  * 1 - Dithering on.
+* Palette Select - Allows you to limit the colors your image uses.
+  *  Default. Uses every color in the Mario Paint palette.
+  *  Greyscale. Turns your image black and white.
+  *  Your custom palettes - more info below!
+* Scaling - Alters the image size to better fit it into the canvas space.
+  * Original - Retains the shape of your image.
+  * Zoom - Crops the edges of your image until it fills the canvas.
+  * Stretch - Makes your image taller or wider until it fills the canvas.
+* Dithering - Turn image dithering on or off.
 
-**For the following 3 "factor" settings, you can insert any number you want, including single digit decimals. For example, if 1 is too dark and 2 is too bright, try 1.5 for better results. If 1 is too bright, try 0.8, etc. You cannot use negative numbers.**
-* contrast_factor - Changes the color contrast of your image.
-  * 1 - Normal contrast.
-  * Below 1 - Lower contrast.
-  * Above 1 - Higher contrast.
-* brightness_factor - Changes how light or dark your image is.
-  * 1 - Normal brightness.
-  * Below 1 - Darker image.
-  * Above 1 - Brighter image.
-* saturation_factor - Changes your image's color saturation.
-  * 1 - Normal saturation.
-  * Below 1 - Lower saturation.
-  * Above 1 - Higher saturation.
+**For the following 3 settings, you can insert any number you want, including single digit decimals. For example, if 1 is too dark and 2 is too bright, try 1.5 for better results. If 1 is too bright, try 0.8, etc. You cannot use negative numbers.**
+* Contrast
+* Brightness
+* Saturation
 
-**The following 2 "preview" options will only affect the preview images and will not change what the Lua scripts will draw.**
+**The following Preview Settings will only affect the preview images and will not change what the Lua scripts will draw.**
+* Preview Scale - Enlarge the preview image output by a multiplier, with 1 being original size. Maximum 5.
 * preview_border - Add a border to the preview image.
   * 0 - No border.
   * 1 - Mario Paint canvas.
   * 2 - Mario Paint canvas set to the custom stamp screen-- what you'd see right after an autoMP image finished drawing.
   * 3 - Special autoMP border.
   * 4 and onward - Your custom preview borders - more info below!
-* preview_size - Enlarge the preview image output by a multiplier.
-  * 1 - Original size (x1).
-  * 2 to 5 - Multiplier (x2 to x5).
+
 ### Custom palettes
-To create your own custom palettes, you can fill out the blank templates in config.txt, then make your own following the same template. You can name your palettes whatever you like, but I recommend numbering them for easier selection. Below the palette name, type "colors = " followed by the colors you want to use, **seperated by commas but no spaces.**\
+To create your own custom palettes, open "config.txt". Being careful not to alter or erase anything else, scroll to the bottom of the document, where you will find the palette section. The palette "custom" is there as a template for you to fill out, and you can continue to make your own following the same template. You can name your palettes whatever you'd like, just be sure it's written inside a set of [brackets]. Below the palette name, type "colors = " followed by the colors you want to use, **seperated by commas but no spaces.**\
 The available colors are as follows:\
 <img src="resources\mppalette.png" width="400">\
 **Type the color names exactly as listed here or they'll be skipped.**
 
+Here's an example:
+
+[Fire]
+colors = red,orange,yellow
+
 You can create as many custom palettes as you want, so please have fun experimenting with them!
 
 ### Custom preview borders
-You can make your own borders to be applied to your preview images. Simply use the included template and draw in the white space outside the red outline. Be sure to save your border image in the "resources" folder with the other borders. Your border must be titled mpborder followed by a number. Note that mpborder1, mpborder2 and mpborder3 are already present, so your first custom border should be named mpborder4. To select that border in the settings, simply set the setting to 4. 
+You can make your own borders to be applied to your preview images. Simply use the included template and draw in the white space outside the red outline. Be sure to save your border image in the "resources" folder with the other borders. Your border must be titled mpborder followed by a number. Note that mpborder1, mpborder2 and mpborder3 are already present, so your first custom border should be named mpborder4. To select that border in the GUI, simply set the "Preview Border" to 4. 
 
 Like palettes, you can make as many preview image borders as you'd like! 
 
