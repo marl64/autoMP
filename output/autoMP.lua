@@ -2,8 +2,8 @@ local imagestring = "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 local imagewidth = 248
 local imageheight = 140
 
--- Original script by alden
--- Modified for autoMP by marl
+-- Original script by alden, modified for autoMP by marl
+
 snes9x.speedmode("turbo")
 
 -- Cursor memory addresses
@@ -17,6 +17,7 @@ local topbound = 24
 local rightbound = 250        
 local bottombound = 192       
 
+-- Useful coordinates
 local stampchange = {240,13}
 local stampchange2 = {240,10}
 local arrow = {234,210}
@@ -280,7 +281,7 @@ for k = 1,numcolors do
 
    for i = 0,imageheight-1 do
 
-      if math.fmod(i+1,2)==0 then -- boustrophedon :))))
+      if math.fmod(i+1,2) == 0 then -- boustrophedon :))))
          for j = imagewidth-1,0,-1 do
             thisposition = i*imagewidth + j + 1
 
