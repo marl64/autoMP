@@ -24,8 +24,8 @@ available colors =
 [greyscale]
 colors = black,grey,silver,white
 
-[fire]
-colors = red,orange,yellow
+[CGA]
+colors = cyan,magenta,black,white
 
 [custom]
 colors =
