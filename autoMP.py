@@ -62,11 +62,7 @@ colors = black,grey,silver,white
 CUSTOM_PALETTE_TEMPLATE = """
 [fire]
 colors = red,orange,yellow
-[example1]
-colors =
-[example2]
-colors =
-[example3]
+[custom]
 colors =
 """
 def setup_checks():
