@@ -118,9 +118,9 @@ The available colors are as follows:\
 
 Here's an example:
 
-[Fire]
-
+[Fire]<br>
 colors = red,orange,yellow
+
 
 You can create as many custom palettes as you want, so please have fun experimenting with them!
 
