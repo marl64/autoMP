@@ -103,7 +103,7 @@ The available settings are as follows:
 
 **The following Preview Settings will only affect the preview images and will not change what the Lua scripts will draw.**
 * Preview Scale - Enlarge the preview image output by a multiplier, with 1 being original size. Maximum 5.
-* preview_border - Add a border to the preview image.
+* Preview Border - Add a border to the preview image.
   * 0 - No border.
   * 1 - Mario Paint canvas.
   * 2 - Mario Paint canvas set to the custom stamp screen-- what you'd see right after an autoMP image finished drawing.
