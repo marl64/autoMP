@@ -60,8 +60,8 @@ available colors:
 colors = black,grey,silver,white
 """
 CUSTOM_PALETTE_TEMPLATE = """
-[fire]
-colors = red,orange,yellow
+[CGA]
+colors = cyan,magenta,black,white
 [custom]
 colors =
 """
