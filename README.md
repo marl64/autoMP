@@ -49,7 +49,7 @@ Mario Paint is a 1992 art program for the Super Nintendo Entertainment System/Su
 
 1. Download and extract the autoMP files.
 
-2. Open Lunar IPS. Click "Apply IPS Patch" and browse for the patch we provided, MarioPaintJUh1Joystick.ips, then for the Mario Paint ROM you want to patch it to. This modifies your ROM to accept the gamepad rather than the mouse for inputs, which allows our scripts to control the game accurately. The scripts WILL NOT WORK WITHOUT THIS PATCH.
+2. Open Lunar IPS. Click "Apply IPS Patch" and browse for the patch we provided, MarioPaintJUh1Joystick.ips, then for the Mario Paint ROM you want to patch it to. This modifies your ROM to accept the gamepad rather than the mouse for inputs, which allows our Lua scripts to control the game accurately. The Lua scripts WILL NOT WORK WITHOUT THIS PATCH.
 
 3. Extract the SNES9x emulator into a seperate folder from autoMP. Place the provided snes9x.cfg file into your SNES9x folder (if there already is one, overwrite it), and make sure there are 2 sub-folders named "Roms" and "Saves". Place your patched ROM in the Roms folder and place the provided savestate, MarioPaint.000, in the Saves folder. **Make sure both your patched ROM and the savestate have the same filename. If they don't, rename one or both of them so that they match.**
 
